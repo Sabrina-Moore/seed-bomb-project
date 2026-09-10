@@ -1,15 +1,12 @@
 //our team
-
 //should this connect to socials? Make it look more poppy
 
-import { useEffect, useState } from 'react'
-import React from 'react';
-
-import {Container, Stack, Box, Grid, Typography, Button}  from '@mui/material';
+import {Stack, Box, Typography}  from '@mui/material';
 
 import colors from '../components/colorPalette'
 import '../index.css'
-import WaveDivider from '../components/WaveDivider';
+import WaveDivider from '../components/waveDivider';
+import Footnote from '../components/footnote';
 
 
 const OurTeam = [
@@ -84,10 +81,12 @@ export default function AboutUs () {
         </Stack>
     </Box>
 
-    <WaveDivider fill={colors.skyBlue} />
+    <Footnote fill={colors.skyBlue} strokeColor={colors.white} />
         
     <Box style={styles.footnote}>
-
+        <Typography style={styles.TextSmall}>
+            The Seed Bomb Project is fiscally sponsored by Creative Visions, a 501c3 nonprofit organization that supports creative activists, those that use the arts and media to ignite social change.
+        </Typography>
     </Box>
 </>
 );
@@ -233,5 +232,12 @@ TextDark: {
     paddingTop: '10px',
     paddingBottom: '10px',
 },
+TextSmall: {
+    color: colors.white,
+    fontFamily: 'var(--sans)',
+    fontSize: '14px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+}
 
 };

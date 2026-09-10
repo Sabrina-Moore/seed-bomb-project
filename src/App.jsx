@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import React from 'react';
 
-import {Container, Box, Typography, Button, Menu, MenuItem}  from '@mui/material';
-
+import {Container, Box, Button, Menu, MenuItem}  from '@mui/material';
 import { AppBar, Toolbar, Stack } from '@mui/material';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import { IconButton } from '@mui/material';
 
 
 import Home from './pages/Home';
@@ -56,7 +57,7 @@ function App() {
 
   return (
     <>
-     <AppBar position="static">
+     <AppBar position="static" elevation={0} sx={{ ...styles.appBar, zIndex: 10, position: 'relative' }}>
       <Toolbar style={styles.toolbar}>
         <Container maxWidth="xl" sx={styles.toolbarInner}> 
           {/* logo */}
@@ -124,7 +125,23 @@ function App() {
                 </Button>
               ))}
 
-            <Button sx={styles.donateButton} onClick={() => setCurrentPage("donate")}>
+            <IconButton
+                component="a"
+                href="https://www.instagram.com/theseedbombproject/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                sx={{ color: colors.white }}
+            >
+                <InstagramIcon />
+            </IconButton>
+
+            <Button 
+            sx={styles.donateButton}
+            component="a"
+            href="https://creative-visions.networkforgood.com/projects/260063-the-seed-bomb-project-healing-la-one-wildflower-at-a-time"
+            target="_blank"
+            rel="noopener noreferrer">
                 Donate Now
               </Button>
           </Stack>
@@ -151,11 +168,10 @@ function App() {
 const styles = {
   // navigation bar
   appBar: {
-    boxshadow: 'none',
-    padding: '8px',
+    backgroundColor: colors.skyBlue,
+    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.15)',
   },
   toolbar: {
-    backgroundColor: colors.skyBlue,
     display: 'flex',
     justifyContent: 'space-between',
   },

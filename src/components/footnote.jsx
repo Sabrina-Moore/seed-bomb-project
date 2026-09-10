@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import colors from './colorPalette';
+
 
 const styles = {
 waveWrapper: {
@@ -18,9 +18,12 @@ waveSvg: {
 },
 }
 
-function WaveDivider({ fill, strokeColor = colors.orange, flip = false }) {
-    return (
-       <Box style={styles.waveWrapper}>
+
+function Footnote ({ fill, strokeColor = colors.orange, flip = false }) {
+
+    return(
+
+        <Box style={styles.waveWrapper}>
             <svg
                 viewBox="0 0 1440 120"
                 preserveAspectRatio="none"
@@ -41,7 +44,8 @@ function WaveDivider({ fill, strokeColor = colors.orange, flip = false }) {
                 />
             </svg>
         </Box>
-);
+        
+    );
 }
 
-export default WaveDivider;
+export default Footnote;

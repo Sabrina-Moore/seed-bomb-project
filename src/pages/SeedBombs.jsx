@@ -1,8 +1,11 @@
+//need images
+
 import {Stack, Box, Typography}  from '@mui/material';
 
 import colors from '../components/colorPalette'
 import '../index.css'
-import WaveDivider from '../components/WaveDivider';
+import WaveDivider from '../components/waveDivider';
+import Footnote from '../components/footnote';
 
 export default function SeedBombs() {
 
@@ -12,36 +15,39 @@ export default function SeedBombs() {
         <Box>
             {/* top page content section */}
             {/* rows */}
-            <Stack direction="row">
+            <Stack direction="row" style={styles.background} >
 
             {/* top row */}
                 <Box style={styles.ingredientSection}>
                     {/* left item */}
                     <Stack direction="column" spacing={1} sx={{alignItems:"center"}}>
-                        <Typography style={styles.sectionTitleOrange}>
-                            How do you make a seed bomb?
-                        </Typography>
-                        <Typography style={styles.TextDark}>
-                            Mix together: 
-                        </Typography>
-                        <Typography style={styles.TextDark}>
-                        1 Cup native wildflower seeds
-                        </Typography>
-                        <Typography style={styles.TextDark}>
-                        3 Cups clay powder
-                        </Typography>
-                        <Typography style={styles.TextDark}>
-                        5 Cups compost
-                        </Typography>
-                        <Typography style={styles.TextDark}>
-                        Water (how much?)
-                        </Typography>
-                        <Typography style={styles.TextDark}>
-                        Mix and form little balls.
-                        </Typography>
-                        <Typography style={styles.TextDark}>
-                        Dry them and plant it. 
-                        </Typography>
+                         <Typography style={styles.sectionTitleOrange}>
+                                How do you make a seed bomb?
+                            </Typography>
+                            {/* explicit width to make uniform sizing */}
+                       <Box sx={{ width: 320 }}>
+                            <Typography style={styles.TextDark}>
+                                Mix together: 
+                            </Typography>
+                            <Typography style={styles.TextDark}>
+                            1 Cup native wildflower seeds
+                            </Typography>
+                            <Typography style={styles.TextDark}>
+                            3 Cups clay powder
+                            </Typography>
+                            <Typography style={styles.TextDark}>
+                            5 Cups compost
+                            </Typography>
+                            <Typography style={styles.TextDark}>
+                            Water (how much?)
+                            </Typography>
+                            <Typography style={styles.TextDark}>
+                            Mix and form little balls.
+                            </Typography>
+                            <Typography style={styles.TextDark}>
+                            Dry them and plant it. 
+                            </Typography>
+                       </Box>
                     </Stack>
                 </Box>
 
@@ -57,41 +63,44 @@ export default function SeedBombs() {
                 </Box>
         </Stack>
 
-               
 
-        <WaveDivider fill={colors.orange} />
         {/* 2nd row */}
-        <Stack direction="row">
+        <Stack direction="row" style={styles.background}>
 
             {/* left item */}
+            
             <Box style={styles.plantingSection}>
+                
                 {/* ingredients list */}
                 <Stack direction="column" spacing={1} sx={{alignItems:"center"}}>
-                    <Typography style={styles.sectionTitle}>
+                    <Typography style={styles.sectionTitleOrange}>
                         How do you plan a seed bomb?
                     </Typography>
-                    <Typography style={styles.Text}>
+                    <Box sx={{ width: 320 }}>
+                        <Typography style={styles.TextDark}>
                         1. Crush your seed bomb in your hand.
-                    </Typography>
-                    <Typography style={styles.Text}>
-                        2. Scatter the seeds.
-                    </Typography>
-                    <Typography style={styles.Text}>
-                        3. Water the area, or time your planting for rain. 
-                    </Typography>
-                    <Typography style={styles.Text}>
-                        4. Wait for blooms. 
-                    </Typography>
-                    {/* images/gif */}
+                        </Typography>
+                        <Typography style={styles.TextDark}>
+                            2. Scatter the seeds.
+                        </Typography>
+                        <Typography style={styles.TextDark}>
+                            3. Water the area, or time your planting for rain. 
+                        </Typography>
+                        <Typography style={styles.TextDark}>
+                            4. Wait for blooms. 
+                        </Typography>
+                        {/* images/gif */}
+                    </Box>
+                    
                 </Stack>
             </Box>
             {/* right item */}
 
              <Box style={styles.whatWeDoSection}>
-                    <Typography style={styles.sectionTitle}>
+                    <Typography style={styles.sectionTitleOrange}>
                         What do we do with them?
                     </Typography>
-                    <Typography style={styles.Text}>
+                    <Typography style={styles.TextDark}>
                         We give seed bombs to people impacted by wildfires so they can transform their cleared lots into vibrant pollinator meadows. We don’t use them in wild spaces or on private property without permission.
                     </Typography>    
                 </Box>
@@ -99,10 +108,12 @@ export default function SeedBombs() {
     </Box>
 
         {/* footnote */}
-    <WaveDivider fill={colors.skyBlue} />
+    <Footnote fill={colors.skyBlue} strokeColor={colors.orange} />
 
     <Box style={styles.footnote}>
-
+        <Typography style={styles.TextSmall}>
+            The Seed Bomb Project is fiscally sponsored by Creative Visions, a 501c3 nonprofit organization that supports creative activists, those that use the arts and media to ignite social change.
+        </Typography>
     </Box>
 
 
@@ -114,19 +125,20 @@ export default function SeedBombs() {
 
 const styles = {
 //sections
+background: {
+backgroundColor: colors.white,
+},
 ingredientSection: {
     boxSizing: 'border-box',
     marginBottom: '60px',
     width: '100%',
-    backgroundColor: colors.white,
     padding: '60px',
-    textAlign: 'center',
+    textAlign: 'left',
 },
 whatWeDoSection: {
     boxSizing: 'border-box',
     width: '100%',
     marginBottom: '60px',
-    backgroundColor: colors.orange,
     paddingBottom: '100px',
     textAlign: 'center',
 },
@@ -134,7 +146,6 @@ nativeSeedsSection: {
     boxSizing: 'border-box',
     width: '100%',
     marginBottom: '60px',
-    backgroundColor: colors.white,
     padding: '60px',
     textAlign: 'center',
 },
@@ -142,9 +153,8 @@ plantingSection: {
     boxSizing: 'border-box',
     width: '100%',
     marginBottom: '60px',
-    backgroundColor: colors.orange,
     paddingBottom: '100px',
-    textAlign: 'center',
+    textAlign: 'left',
 },
 footnote: {
     boxSizing: 'border-box',
@@ -256,5 +266,12 @@ TextDark: {
     paddingTop: '10px',
     paddingBottom: '10px',
 },
+TextSmall: {
+    color: colors.white,
+    fontFamily: 'var(--sans)',
+    fontSize: '14px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+}
 
 };
