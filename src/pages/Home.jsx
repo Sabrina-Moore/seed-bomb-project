@@ -1,12 +1,12 @@
-import React from 'react';
-import { useEffect, useState } from 'react'
+//need images
 
-import {Container, Box, Typography, Button, Stack}  from '@mui/material';
+import {Stack, Box, Typography, Button}  from '@mui/material';
 
 import colors from '../components/colorPalette'
 import '../index.css'
 
-import WaveDivider from '../components/WaveDivider';
+import WaveDivider from '../components/waveDivider';
+import Footnote from '../components/footnote';
 import map from '../assets/map-placeholder.png';
 
 
@@ -71,7 +71,7 @@ export default function Home () {
         </Box>
 
           {/* swirly wave divider */}
-        <WaveDivider fill={colors.orange} />
+        <WaveDivider fill={colors.orange} strokeColor={colors.white}/>
 
             {/* page content section */}
 
@@ -88,26 +88,64 @@ export default function Home () {
                     Rummy Goodyear was 14 years old when he lost his home in the LA Wildfires on January 7th, 2025. Seeking a way to channel his grief into something positive for his community and for the entire city, he recruited friends and peers to help make seed bombs, balls of native wildflower seeds, clay, and compost to share and spread in fire-ravaged neighborhoods. In its first six months, the Seed Bomb Project has distributed more than 3000 seed bombs to stakeholders from Altadena to Pacific Palisades, healing LA one wildflower at a time.
                 </Typography>
 
+               {/* LA Times Article Action section  */}
+                <Box sx={{ width: '100%', padding: '40px', display: 'flex', justifyContent: 'center' }}>
+                    <Stack direction='row' spacing={8} alignItems="center">
+                        <Typography>
+                            Placeholder Image
+                        </Typography>
+                        <Box sx={{width: '300px'}}>
+                            <Typography style={styles.Subtitle}> 
+                                "This mother and son are sowing purpose and hope, one wildflower at a time."
+                            </Typography>
+                        </Box>
+                        <Button 
+                            sx={styles.donateButton}
+                            component="a"
+                            href="https://www.latimes.com/lifestyle/newsletter/2025-12-01/december-plants-newsletter"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                                Read the LA Times' Article
+                        </Button>
+                    </Stack>
+                </Box>
+                {/* argument */}
                 <Typography style={styles.Text}>
                     Climate disasters take a toll on the physical and mental health of those who experience them, but they also provide powerful opportunities for growth and change. Our work is hands-on, heart forward, youth-led, and fun, embodying the natural resilience of the native plant varieties we work with. 
                 </Typography>
                 <Typography style={styles.Text}>
                     Help us turned cleared lots and charred parkways into wildflower meadows. 
                 </Typography >
+
+                {/* images */}
+                <Box sx={{ width: '100%', padding: '40px', display: 'flex', justifyContent: 'center' }}>
+                    <Stack direction='row' spacing={8} alignItems="center">
+                        <Typography>
+                            Placeholder Image
+                        </Typography>
+                        <Typography>
+                            Placeholder Image
+                        </Typography>
+                        <Typography>
+                            Placeholder Image
+                        </Typography>
+                    </Stack>
+                </Box>
             </Box>
 
-             <WaveDivider fill={colors.orange} />
-
+             <WaveDivider fill={colors.orange}/>
+            {/* map engine section */}
             <Box style={styles.engineSection}>
                 <Typography style={styles.Subtitle}>
-                    Track every Seed Bomb planted across Southern California — and add your own pin to the map.
+                    Track every Seed Bomb planted across Southern California — and add your own pin to the map
                 </Typography>
-
                 <Typography style={styles.TextDark}>
                     Every dot below is a seed bomb planted by someone just like you. Explore the map, see how your neighborhood is doing, and add your own pin in seconds.
                 </Typography>
-            {/* engine */}
-
+                <Typography style={styles.TextDark}>
+                    Please plant responsibly only in areas that you have permission to do so.
+                </Typography>
+                {/* engine Placeholder */}
                 <MapEnginePlaceholder />
 
                 <Button variant="contained" sx={styles.bombButton}>
@@ -115,26 +153,24 @@ export default function Home () {
                 </Button>
 
                 {/* data analytics - make this more dynamic */}
-            <Stack direction="row" spacing={4} sx={{justifyContent: "center"}} style={styles.statsRow}>
-                <Box>
-                    <Typography style={styles.statNumber}>3,140</Typography>
-                    <Typography style={styles.statLabel}>Seed Bombs Planted</Typography>
-                </Box>
-                <Box>
-                    <Typography style={styles.statNumber}>62</Typography>
-                    <Typography style={styles.statLabel}>Neighborhoods Reached</Typography>
-                </Box>
-                <Box>
-                    <Typography style={styles.statNumber}>800+</Typography>
-                    <Typography style={styles.statLabel}>Volunteers Involved</Typography>
-                </Box>
-            </Stack>
-
+                <Stack direction="row" spacing={4} sx={{justifyContent: "center"}} style={styles.statsRow}>
+                    <Box>
+                        <Typography style={styles.statNumber}>3,140</Typography>
+                        <Typography style={styles.statLabel}>Seed Bombs Planted</Typography>
+                    </Box>
+                    <Box>
+                        <Typography style={styles.statNumber}>62</Typography>
+                        <Typography style={styles.statLabel}>Neighborhoods Reached</Typography>
+                    </Box>
+                    <Box>
+                        <Typography style={styles.statNumber}>800+</Typography>
+                        <Typography style={styles.statLabel}>Volunteers Involved</Typography>
+                    </Box>
+                </Stack>
             </Box>
 
-
           {/* swirly wave divider engine (orange) -> restoration (green) */}
-            <WaveDivider fill={colors.green} />
+            <WaveDivider fill={colors.green} strokeColor={colors.skyBlue}/>
 
             {/* hands on restoration */}
             <Box style={styles.restorationSection}>
@@ -144,10 +180,32 @@ export default function Home () {
                 <Typography style={styles.Text}>
                     More than 37,000 acres burned in the Palisades and Eaton Fires, including more than sixteen thousand structures. The Seed Bomb Project engages young people to take an active role in healing their communities. 
                 </Typography>
+
+                {/* images */}
+                <Box sx={{ width: '100%', padding: '40px', display: 'flex', justifyContent: 'center' }}>
+                    <Stack direction='row' spacing={8} alignItems="center">
+                        <Typography>
+                            Placeholder Image
+                        </Typography>
+                        <Typography>
+                            Placeholder Image
+                        </Typography>
+                        <Typography>
+                            Placeholder Image
+                        </Typography>
+                    </Stack>
+                </Box>
+
+                <Typography style={styles.coverTitle}> 
+                    Seed Bombing Isn’t Just Fun — It’s Healing.
+                </Typography>
                 
                 {/* add images - make bigger */}
                 <Stack direction="row" spacing={3} sx={{alignItems:"center"}} >
                     <Box>
+                        <Typography>
+                            Image Placeholder
+                        </Typography>
                         <Typography style={styles.Subtitle}>
                             Healing the Land
                         </Typography>
@@ -156,6 +214,9 @@ export default function Home () {
                         </Typography>
                     </Box>
                     <Box>
+                        <Typography>
+                            Image Placeholder
+                        </Typography>
                         <Typography style={styles.Subtitle}>
                             Healing Ourselves
                         </Typography>
@@ -164,6 +225,9 @@ export default function Home () {
                         </Typography>
                     </Box>
                     <Box>
+                        <Typography>
+                            Image Placeholder
+                        </Typography>
                         <Typography style={styles.Subtitle}>
                             Healing LA
                         </Typography>
@@ -182,9 +246,20 @@ export default function Home () {
                 <Typography style={styles.sectionTitle}>
                     Why Native Seeds?
                 </Typography>
-                <Typography style={styles.Caption}>
-                    “These seeds have adapted to thrive in the aftermath of wildfires.They actually grow better when challenged. They embody resilience.”— Rummy
-                </Typography>
+                <Box sx={{ width: '100%', padding: '40px', display: 'flex', justifyContent: 'center' }}>
+                    <Stack direction='row' spacing={8} alignItems="center">
+                        <Typography>
+                            Placeholder Image
+                        </Typography>
+                        <Box sx={{width: '300px'}}>
+                            <Typography style={styles.Caption}>
+                                “These seeds have adapted to thrive in the aftermath of wildfires.They actually grow better when challenged. They embody resilience.”— Rummy
+                            </Typography>
+                        </Box>   
+                    </Stack>
+                </Box>
+                
+                
                 <Typography style={styles.Text}>
                     California poppies, sunflowers, yarrow, evening primrose. . . these are the “fire-followers,” amazing plants that thrive in the aftermath of a fire. These drought-tolerant plants stabilize and detoxify the soil, create habitat and food for birds and bees, and prevent invasive plants from taking over and presenting new fire hazards. They are iconic and beautiful and they will help prevent future disasters!
                 </Typography>
@@ -192,27 +267,47 @@ export default function Home () {
 
 
             {/* native seeds (sky blue) -> follow us (white page bg) */}
-            <WaveDivider fill={colors.bg || '#fff'} />
-
-            {/* Healing statement follow us */}
-             <Box style={styles.followUsSection}>
-                {/* images */}
-            </Box>
+            <WaveDivider fill={colors.white} strokeColor={colors.green} />
 
             {/* Partner with us */}
             <Box style={styles.partnerSection}>
-                {/* images */}
+                  <Box sx={{ width: '100%', padding: '40px', display: 'flex', justifyContent: 'center' }}>
+                    <Stack direction='row' spacing={8} alignItems="center">
+                        <Typography>
+                            Placeholder Logo
+                        </Typography>  
+                        <Typography>
+                            Placeholder Logo
+                        </Typography>  
+                        <Typography>
+                            Placeholder Logo
+                        </Typography>  
+                        <Typography>
+                            Placeholder Logo
+                        </Typography>  
+                        <Typography>
+                            Placeholder Logo
+                        </Typography>  
+                        <Typography>
+                            Placeholder Logo
+                        </Typography>  
+                    </Stack>
+                </Box>
                 
-                <Button sx={styles.partnerButton}>
+                <Button style={styles.partnerButton}>
                     Partner With Us
                 </Button>
+
             </Box>
 
              {/* footnote */}
-    <WaveDivider fill={colors.skyBlue} />
+    
+    <Footnote fill={colors.skyBlue} strokeColor={colors.orange} />
 
     <Box style={styles.footnote}>
-
+        <Typography style={styles.TextSmall}>
+            The Seed Bomb Project is fiscally sponsored by Creative Visions, a 501c3 nonprofit organization that supports creative activists, those that use the arts and media to ignite social change.
+        </Typography>
     </Box>
 
     </>
@@ -253,14 +348,6 @@ nativeSeedsSection: {
     marginBottom: '60px',
     backgroundColor: colors.skyBlue,
     paddingBottom: '100px',
-    textAlign: 'center',
-},
-followUsSection: {
-    boxSizing: 'border-box',
-    width: '100%',
-    marginBottom: '60px',
-    backgroundColor: colors.white,
-    paddingBottom: '100px', //text space
     textAlign: 'center',
 },
 partnerSection: {
@@ -310,10 +397,12 @@ mapImg: {
 
 //buttons
 donateButton: {
-    backgroundColor: colors.orange,
-    color: colors.white,
+    backgroundColor: colors.white,
+    color: colors.navyBlue,
     fontWeight: 'bold',
+    fontSize: '20px',
     fontStyle: 'italic',
+    maxWidth: '200px',
     borderRadius: '30px',
     textTransform: 'none',
     paddingLeft: '24px',
@@ -454,6 +543,13 @@ TextDark: {
     color: colors.navyBlue,
     fontFamily: 'var(--sans)',
     fontSize: '18px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+},
+TextSmall: {
+    color: colors.white,
+    fontFamily: 'var(--sans)',
+    fontSize: '14px',
     paddingTop: '10px',
     paddingBottom: '10px',
 },

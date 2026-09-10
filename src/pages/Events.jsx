@@ -1,35 +1,44 @@
-import React from 'react';
+
+import {Box, Stack, Typography}  from '@mui/material';
+
 import colors from '../components/colorPalette'
 import '../index.css'
-import WaveDivider from '../components/WaveDivider';
+import WaveDivider from '../components/waveDivider';
+import Footnote from '../components/footnote';
 import EventCard from '../components/eventCard';
+//import poppyImage from '../assets/poppy-header.jpg';
 
-import {Box, Typography, Stack, Grid, Card, CardContent}  from '@mui/material';
+
 
 
 const pastEvents = [
   {
     id: 1,
+    image: '',
     title: ' Yee Haw Day',
     description: 'We had a booth at  Palisades Elementary Charter School’s annual Yee Haw Day. 70% of Pali Elementary students lost their homes along with their school. We had so much fun making seed bombs—591 of them!—with this amazing community.',
   },
   {
     id: 2,
+    image: '',
     title: 'TREEAMS' ,
     description: 'We gave away seed bombs at the launch of TREEAMS, the late, great Jane Goodall’s program to plant 5,000 native trees in Los Angeles County.',
   },
   {
     id: 3,
+    image: '',
     title: 'Steadfast LA',
     description: 'We planted hundreds of seed bombs with Steadfast LA along Sunset Boulevard in Pacific Palisades. Highlights included introducing Rick Caruso to seed bombing, and watering with help from Station 69.',
   },
   {
     id: 4,
+    image: '',
     title: 'Aveson School Fall Festival',
     description: 'We gave out seed bombs to our Altadena neighbors affected by the Eaton Fire at the Aveson School of Leaders Fall Festival, deepening connections with another joyful and resilient LA community!',
   },
   {
     id: 5,
+    image: '',
     title: 'Your Next Door Neighbor',
     description: 'We gave away seed bombs to fire-affected families at Home for the Holidays, an immersive winter wonderland experience created by our friends at Your Next Door Neighbor. We will also be running a seed bomb making workshop.',
 
@@ -37,6 +46,7 @@ const pastEvents = [
   },
   {
     id: 6,
+    image: '',
     title: 'Community Gathering in Pacific Palisades',
     description: 'On December 6, 2026, neighbors and friends gathered at our lot in the Alphabet Streets in Pacific Palisades to connect, share our stories, and pick up seed bombs to plant in their lots.',
   }
@@ -50,22 +60,47 @@ export default function Events () {
 
     return(
     <>
-        <Box style={styles.eventsSection}>
-            <Typography style={styles.coverTitle}>
+        <Box
+            style={{
+                ...styles.coverSection,
+                //backgroundImage: `url(${poppyImage})`,
+            }}>
+            {/* poppy image header */}
+
+             <Typography style={styles.coverTitle}>
                 Bring the Seed Bomb Project to Your School
             </Typography>
+        </Box>
+
+        <WaveDivider fill={colors.green}/>
+
+        <Box style={styles.eventsSection}>
+            {/* images */}
+             <Box sx={{ width: '100%', padding: '40px', display: 'flex', justifyContent: 'center' }}>
+                    <Stack direction='row' spacing={8} alignItems="center">
+                        <Typography>
+                            Placeholder Image
+                        </Typography>  
+                        <Typography>
+                            Placeholder Image
+                        </Typography>  
+                        <Typography>
+                            Placeholder Image
+                        </Typography>  
+                    </Stack>
+                </Box>
 
             <Typography style={styles.sectionTitleDark}>
                 Past Events
             </Typography>
 
-            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 3 }}>
+            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 3, paddingBottom: '40px' }}>
             {pastEvents.map((event) => (
                 <EventCard
                 key={event.id}
+                image={event.image}
                 title={event.title}
                 description={event.description}
-                imageUrl={event.imageUrl}
                 styles={styles}
                 />
             ))}
@@ -79,15 +114,25 @@ export default function Events () {
                 Host a Seed Bomb Workshop for your community
             </Typography>
 
+            <Typography sx={{...styles.TextDark, paddingBottom: '40px'}}>
+                Placeholder timelapse video
+            </Typography>
+
+            <Typography sx={{...styles.TextDark, paddingBottom: '60px'}}>
+                More info here about what it's like hosting an event.
+            </Typography>
+
         </Box>
 
 
 
 
-        <WaveDivider fill={colors.skyBlue} />
+        <Footnote fill={colors.skyBlue} strokeColor={colors.orange}  />
 
         <Box style={styles.footnote}>
-            Social Media Links here
+            <Typography style={styles.TextSmall}>
+                The Seed Bomb Project is fiscally sponsored by Creative Visions, a 501c3 nonprofit organization that supports creative activists, those that use the arts and media to ignite social change.
+            </Typography>
         </Box>
     
     
@@ -101,6 +146,17 @@ export default function Events () {
 
 const styles = {
 //sections
+coverSection: {
+    width: '100%',
+    minHeight: '400px', 
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+},
 eventsSection: {
     boxSizing: 'border-box',
     width: '100%',
@@ -228,5 +284,12 @@ TextDark: {
     paddingTop: '10px',
     paddingBottom: '10px',
 },
+TextSmall: {
+    color: colors.white,
+    fontFamily: 'var(--sans)',
+    fontSize: '14px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+}
 
 };

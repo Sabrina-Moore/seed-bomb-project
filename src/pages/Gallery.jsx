@@ -1,35 +1,89 @@
 //fetches from bucket in supabase of images
-import React from 'react';
+import { useEffect, useState } from 'react';
 
-import {Box, Typography, Stack, Grid, Card, CardContent}  from '@mui/material';
-
+import {Box, Typography}  from '@mui/material';
+import Masonry from '@mui/lab/Masonry';
 
 import colors from '../components/colorPalette'
 import '../index.css'
-import WaveDivider from '../components/WaveDivider';
-import EventCard from '../components/eventCard';
+import WaveDivider from '../components/waveDivider';
+import Footnote from '../components/footnote';
 
+import { supabase } from '../../utils/supabase' 
 
 export default function Gallery () {
 
+    //states
+    const [images, setImages] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(null)
 
-    // fetch logic 
+    //fetch images from supabae
+    useEffect(() => {
+    async function fetchImages() {
+    try {
+      const { data, error } = await supabase
+        .from('gallery_images')
+        .select('*')
+        .order('id', { ascending: false })
+
+      if (error) {
+        setError(error.message)
+      } else {
+        setImages(data)
+      }
+    } catch (err) {
+      setError(err.message)
+    } finally {
+      setLoading(false)
+    }
+    }
+
+    fetchImages()
+  }, [])
+
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error: {error}</p>
+
 
 
     return(
     <>
-        <Stack direction="row" style={styles.gallerySection}>
-            {/* cards of images */}
-            <Box>
+    <Box style={styles.gallerySection}>
+        <Typography style={styles.coverTitle}>
+            FROM ASHES TO ACTION
+        </Typography>
+        <Masonry columns={3} spacing={2}>
+            {images.map((img) => {
+                const { data: { publicUrl } } = supabase
+                .storage
+                .from('gallery')
+                .getPublicUrl(img.storage_path)
+                return (
+                <Box key={img.id}>
+                    <img 
+                    src={publicUrl} 
+                    alt={img.alt_text || img.title} 
+                    loading="lazy" 
+                    style={{ width: '100%', display: 'block', borderRadius: 8 }} 
+                    />
+                    <Box sx={{ mt: 1 }}>{img.title}</Box>
+                </Box>
+                )
+            })}
+        </Masonry>
 
-            </Box>
+        <br/>
 
-        </Stack>
+    </Box>
 
-         <WaveDivider fill={colors.skyBlue} />
+
+        <Footnote fill={colors.skyBlue} strokeColor={colors.white}  />
 
         <Box style={styles.footnote}>
-            Social Media Links here
+            <Typography style={styles.TextSmall}>
+                The Seed Bomb Project is fiscally sponsored by Creative Visions, a 501c3 nonprofit organization that supports creative activists, those that use the arts and media to ignite social change.
+            </Typography>
         </Box>
     
 
@@ -47,8 +101,9 @@ gallerySection: {
     boxSizing: 'border-box',
     width: '100%',
     backgroundColor: colors.orange,
-    padding: '60px',
     marginBottom: '60px',
+    marginTop: '-2px',
+    padding: '20px 20px',
     textAlign: 'center',
 },
 
@@ -162,5 +217,12 @@ TextDark: {
     paddingTop: '10px',
     paddingBottom: '10px',
 },
+TextSmall: {
+    color: colors.white,
+    fontFamily: 'var(--sans)',
+    fontSize: '14px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+}
 
 };
