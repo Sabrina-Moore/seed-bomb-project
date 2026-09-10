@@ -9,6 +9,7 @@ import { AppBar, Toolbar, Stack } from '@mui/material';
 import Home from './pages/Home';
 import Gallery from './pages/Gallery';
 import AboutUs from './pages/AboutUs';
+import SeedBombs from './pages/SeedBombs';
 import Events from './pages/Events';
 import GetInvolved from './pages/GetInvolved';
 import Press from './pages/Press';
@@ -135,6 +136,7 @@ function App() {
             
     {currentPage === "home" && <Home />}
     {currentPage === "about" && <AboutUs />}
+    {currentPage === "seedbombs" && <SeedBombs />}
     {currentPage === "events" && <Events />}
     {currentPage === "gallery" && <Gallery />}
     {currentPage === "press" && <Press />}

@@ -5,6 +5,7 @@ const colors = {
   darkOrange: '#FE5200',
   cream: '#FFF8F0',
   white: '#FFFFFF',
+  navyBlue: '#242947',
 };
 
 export default colors;
