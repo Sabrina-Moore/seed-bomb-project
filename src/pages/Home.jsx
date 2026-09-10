@@ -208,6 +208,12 @@ export default function Home () {
                 </Button>
             </Box>
 
+             {/* footnote */}
+    <WaveDivider fill={colors.skyBlue} />
+
+    <Box style={styles.footnote}>
+
+    </Box>
 
     </>
 
@@ -215,9 +221,66 @@ export default function Home () {
 }
 
 
-
 const styles = {
-  // images
+//sections
+missionSection: {
+    boxSizing: 'border-box',
+    width: '100%',
+    marginBottom: '60px',
+    backgroundColor: colors.orange,
+    paddingBottom: '100px', //text space
+    textAlign: 'center',
+},
+engineSection: {
+    boxSizing: 'border-box',
+    width: '100%',
+    marginBottom: '60px',
+    backgroundColor: colors.orange,
+    paddingBottom: '100px', //text space
+    textAlign: 'center',
+},
+restorationSection: {
+    boxSizing: 'border-box',
+    width: '100%',
+    marginBottom: '60px', //color
+    backgroundColor: colors.green,
+    paddingBottom: '100px', //text space
+    textAlign: 'center',
+},
+nativeSeedsSection: {
+    boxSizing: 'border-box',
+    width: '100%',
+    marginBottom: '60px',
+    backgroundColor: colors.skyBlue,
+    paddingBottom: '100px',
+    textAlign: 'center',
+},
+followUsSection: {
+    boxSizing: 'border-box',
+    width: '100%',
+    marginBottom: '60px',
+    backgroundColor: colors.white,
+    paddingBottom: '100px', //text space
+    textAlign: 'center',
+},
+partnerSection: {
+    boxSizing: 'border-box',
+    width: '100%',
+    marginBottom: '60px',
+    backgroundColor: colors.white,
+    paddingBottom: '100px', //text space
+    textAlign: 'center',
+},
+footnote: {
+    boxSizing: 'border-box',
+    width: '100%',
+    marginBottom: '60px',
+    backgroundColor: colors.skyBlue,
+    paddingBottom: '100px', //text space
+    textAlign: 'center',
+},
+
+//images
 coverImage: {
     position: 'relative',
     minHeight: '500px',
@@ -229,7 +292,6 @@ coverImage: {
     justifyContent: 'center',
     paddingBottom: '60px',
 },
-
 engineImage: {
     position: 'relative',
     maxWidth: '100%',
@@ -238,7 +300,6 @@ engineImage: {
     justifyContent: 'center',
     paddingBottom: '60px',
 },
-
 mapImg: {
     display: 'block',
     width: '100%',
@@ -247,124 +308,7 @@ mapImg: {
     borderRadius: '12px',     
 },
 
-//sections
-missionSection: {
-    boxSizing: 'border-box',
-    marginBottom: '60px',
-    width: '100%',
-    backgroundColor: colors.orange,
-    marginTop: '-2px',
-    padding: '60px 24px',
-    textAlign: 'center',
-},
-engineSection: {
-    boxSizing: 'border-box',
-    width: '100%',
-    marginBottom: '60px',
-    backgroundColor: colors.orange,
-    marginTop: '-2px',
-    padding: '60px 24px',
-    textAlign: 'center',
-},
-restorationSection: {
-    boxSizing: 'border-box',
-    width: '100%',
-    marginBottom: '60px',
-    backgroundColor: colors.green,
-    marginTop: '-2px',
-    padding: '60px 24px',
-    textAlign: 'center',
-},
-nativeSeedsSection: {
-    boxSizing: 'border-box',
-    width: '100%',
-    marginBottom: '60px',
-    backgroundColor: colors.skyBlue,
-    marginTop: '-2px',
-    padding: '60px 24px',
-    textAlign: 'center',
-},
-followUsSection: {
-    boxSizing: 'border-box',
-    width: '100%',
-    marginTop: '60px',
-    marginBottom: '60px',
-    backgroundColor: colors.white,
-    textAlign: 'center',
-},
-partnerSection: {
-    boxSizing: 'border-box',
-    width: '100%',
-    marginTop: '60px',
-    marginBottom: '60px',
-    backgroundColor: colors.white,
-    textAlign: 'center',
-},
-
-//font
-coverTitle: {
-    color: colors.white,
-    fontFamily: 'var(--heading)', 
-    fontWeight: 900,
-    fontStyle: 'italic',
-    fontSize: '50px',
-    textAlign: 'center',
-    textShadow: '0 2px 8px rgba(0,0,0,0.3)',
-},
-
-missionTitle: {
-    color: colors.white,
-    fontFamily: 'var(--heading)', 
-    fontStyle: 'italic',
-    fontWeight: 900,
-    fontSize: '35px',
-    paddingTop: '10px',
-    paddingBottom: '10px',
-},
-sectionTitle: {
-    color: colors.white,
-    fontFamily: 'var(--sans)', 
-    fontStyle: 'italic',
-    fontWeight: 700,
-    fontSize: '25px',
-    paddingTop: '10px',
-    paddingBottom: '10px',
-},  
-
-Subtitle: {
-    color: colors.white,
-    fontFamily: 'var(--sans)', 
-    fontStyle: 'italic',
-    fontWeight: 700,
-    fontSize: '20px',
-    paddingTop: '10px',
-    paddingBottom: '10px',
-},
-Caption: {
-    color: colors.white,
-    fontFamily: 'var(--sans)', 
-    fontStyle: 'italic',
-    fontSize: '16px',
-    paddingTop: '10px',
-},
-
-Text: {
-    color: colors.white,
-    fontFamily: 'var(--sans)', 
-    fontSize: '16px',
-    paddingTop: '10px',
-    paddingBottom: '10px',
-},
-TextDark: {
-    color: colors.white,
-    fontFamily: 'var(--sans)',
-    fontSize: '16px',
-    maxWidth: '600px',
-    margin: '0 auto',
-    paddingBottom: '10px',
-},
-
-//Buttons
+//buttons
 donateButton: {
     backgroundColor: colors.orange,
     color: colors.white,
@@ -381,7 +325,6 @@ donateButton: {
         opacity: 0.9,
     },
 },
-
 partnerButton: {
     backgroundColor: colors.orange,
     color: colors.white,
@@ -398,7 +341,6 @@ partnerButton: {
         opacity: 0.9,
     },
 },
-
 BombButton: {
     backgroundColor: colors.green,
     color: colors.white,
@@ -416,9 +358,108 @@ BombButton: {
     },
 },
 
+//font
+coverTitle: {
+    color: colors.white,
+    fontFamily: 'var(--heading)', 
+    fontWeight: 900,
+    fontStyle: 'italic',
+    fontSize: '50px',
+    textAlign: 'center',
+    textShadow: '0 2px 8px rgba(0,0,0,0.3)',
+},
+missionTitle: {
+    color: colors.white,
+    fontFamily: 'var(--heading)', 
+    fontStyle: 'italic',
+    fontWeight: 900,
+    fontSize: '40px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+},
+sectionTitle: {
+    color: colors.white,
+    fontFamily: 'var(--sans)', 
+    fontStyle: 'italic',
+    fontWeight: 700,
+    fontSize: '30px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+},  
+sectionTitleDark: {
+    color: colors.navyBlue,
+    fontFamily: 'var(--sans)', 
+    fontStyle: 'italic',
+    fontWeight: 700,
+    fontSize: '30px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+},  
+sectionTitleOrange: {
+    color: colors.darkOrange,
+    fontFamily: 'var(--sans)', 
+    fontStyle: 'italic',
+    fontWeight: 700,
+    fontSize: '30px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+},  
+Subtitle: {
+    color: colors.white,
+    fontFamily: 'var(--sans)', 
+    fontStyle: 'italic',
+    fontWeight: 700,
+    fontSize: '25px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+},
+SubtitleDark: {
+    color: colors.navyBlue,
+    fontFamily: 'var(--sans)', 
+    fontStyle: 'italic',
+    fontWeight: 700,
+    fontSize: '25px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+},
+Caption: {
+    color: colors.white,
+    fontFamily: 'var(--sans)', 
+    fontStyle: 'italic',
+    fontSize: '20px',
+    paddingTop: '10px',
+},
+Text: {
+    color: colors.white,
+    fontFamily: 'var(--sans)', 
+    fontSize: '18px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+},
+TextOrange: {
+    color: colors.darkOrange,
+    fontFamily: 'var(--sans)',
+    fontSize: '18px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+},
+TextGreen: {
+    color: colors.green,
+    fontFamily: 'var(--sans)',
+    fontSize: '18px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+},
+TextDark: {
+    color: colors.navyBlue,
+    fontFamily: 'var(--sans)',
+    fontSize: '18px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+},
 
-//map placeholders
-// map placeholder
+
+//map engine
 mapPlaceholder: {
     position: 'relative',
     width: '100%',
@@ -479,7 +520,7 @@ mapLegendText: {
     color: '#333',
 },
 
-// stats
+//stats and analytics
 statsRow: {
     marginTop: '24px',
     marginBottom: '32px',
@@ -496,46 +537,10 @@ statLabel: {
     fontSize: '14px',
 },
 
-// impact cards
-impactStack: {
-    marginTop: '32px',
-},
-impactCard: {
-    flex: 1,
-    textAlign: 'center',
-},
 
-// steps
-stepsStack: {
-    marginTop: '32px',
-},
-stepCard: {
-    flex: 1,
-    maxWidth: '260px',
-    textAlign: 'center',
-},
-stepNumber: {
-    color: colors.orange,
-    fontFamily: 'var(--heading)',
-    fontWeight: 900,
-    fontSize: '40px',
-},
-stepTitle: {
-    color: 'var(--text-h)',
-    fontFamily: 'var(--sans)',
-    fontWeight: 700,
-    fontStyle: 'italic',
-    fontSize: '20px',
-    marginTop: '4px',
-    marginBottom: '8px',
-},
-stepText: {
-    color: 'var(--text)',
-    fontFamily: 'var(--sans)',
-    fontSize: '15px',
-},
+
+
 };
-
 
 
 
