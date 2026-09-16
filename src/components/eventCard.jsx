@@ -1,16 +1,56 @@
-import React from 'react';
+
+import colors from './colorPalette';
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+
+
+function DescriptionWithLink({ description, linkText, link }) {
+    if (!linkText || !link) {
+        return <>{description}</>;
+    }
+
+    const index = description.indexOf(linkText);
+
+    
+    if (index === -1) {
+        return <>{description}</>;
+    }
+
+    const before = description.slice(0, index);
+    const after = description.slice(index + linkText.length);
+
+    return (
+        <>
+            {before}
+            <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ 
+                  color: colors.orange,
+                  textDecoration: 'underline' }}
+            >
+                {linkText}
+            </a>
+            {after}
+        </>
+    );
+}
+
+ 
 
 export default function EventCard({
   title,
   description,
-  imageUrl,
+  image,
   imageAlt = 'Event image',
+  link,
+  linkText,
   styles = {},
   maxWidth = 400,
-  imageHeight = 180,
+  imageHeight = 300,
   onClick,
 }) {
+  
   return (
     <Card
       variant="outlined"
@@ -31,11 +71,11 @@ export default function EventCard({
       }}
     >
       {/* Event Image */}
-      {imageUrl && (
+      {image && (
         <CardMedia
           component="img"
           height={imageHeight}
-          image={imageUrl}
+          image={image}
           alt={imageAlt || title}
         />
       )}
@@ -57,7 +97,7 @@ export default function EventCard({
           color="text.secondary"
           sx={{ lineHeight: 1.6 }}
         >
-          {description}
+          <DescriptionWithLink description={description} linkText={linkText} link={link} />
         </Typography>
       </CardContent>
     </Card>

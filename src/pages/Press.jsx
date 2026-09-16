@@ -7,16 +7,17 @@ import {Container, Box, Typography, Button, Card, CardMedia, CardContent, CardAc
 import colors from '../components/colorPalette'
 import '../index.css'
 import WaveDivider from '../components/waveDivider';
+import FootnoteDivider from '../components/footnoteDivider';
 import Footnote from '../components/footnote';
 
-import image1 from '../assets/article-palisades-news.jpeg';
-import image2 from '../assets/article-crossroads-news.jpeg';
-import image3 from '../assets/article-la-times.jpeg';
-import image4 from '../assets/article-palisadian-post.jpeg';
-import image5 from '../assets/article-nbc.jpeg';
-import image6 from '../assets/article-westside-current.jpeg';
-import image7 from '../assets/article-circling-news.jpeg';
-import image8 from '../assets/article-national-geo.jpeg';
+import image1 from '../assets/articleThumbnails/article-palisades-news.jpeg';
+import image2 from '../assets/articleThumbnails/article-crossroads-news.jpeg';
+import image3 from '../assets/articleThumbnails/article-la-times.jpeg';
+import image4 from '../assets/articleThumbnails/article-palisadian-post.jpeg';
+import image5 from '../assets/articleThumbnails/article-nbc.jpeg';
+import image6 from '../assets/articleThumbnails/article-westside-current.jpeg';
+import image7 from '../assets/articleThumbnails/article-circling-news.jpeg';
+import image8 from '../assets/articleThumbnails/article-national-geo.jpeg';
 
 
 //array of just works written by the Nonprofit
@@ -198,13 +199,11 @@ export default function Press() {
             </Grid>
     </Box>
 
-        <Footnote fill={colors.skyBlue} strokeColor={colors.white}  />
+        {/* -------------- */}
+            {/* footnote */}
+        <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
 
-        <Box style={styles.footnote}>
-            <Typography style={styles.TextSmall}>
-                The Seed Bomb Project is fiscally sponsored by Creative Visions, a 501c3 nonprofit organization that supports creative activists, those that use the arts and media to ignite social change.
-            </Typography>
-        </Box>
+        <Footnote/>
 
         
 
@@ -226,18 +225,6 @@ pageSection: {
     padding: '20px 20px',
     textAlign: 'center',
 },
-
-footnote: {
-    boxSizing: 'border-box',
-    width: '100%',
-    marginBottom: '60px',
-    backgroundColor: colors.skyBlue,
-    marginTop: '-2px',
-    padding: '60px 24px',
-    textAlign: 'center',
-},
-
-
 //font
 coverTitle: {
     color: colors.white,

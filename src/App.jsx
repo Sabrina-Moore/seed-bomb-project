@@ -1,3 +1,4 @@
+//navigation bar across screens
 import { useEffect, useState } from 'react'
 import React from 'react';
 
@@ -18,6 +19,7 @@ import Donate from './pages/Donate';
 
 import colors from './components/colorPalette'
 import'./index.css'
+import SeedBombLogo from './assets/logos/seed_bomb_logo.png';
 
 function App() {
 
@@ -60,10 +62,14 @@ function App() {
      <AppBar position="static" elevation={0} sx={{ ...styles.appBar, zIndex: 10, position: 'relative' }}>
       <Toolbar style={styles.toolbar}>
         <Container maxWidth="xl" sx={styles.toolbarInner}> 
-          {/* logo */}
+
            {/* logo */}
           <Box sx={styles.logo} onClick={() => setCurrentPage("home")}>
-            Placeholder Logo
+            <Box 
+              component="img"
+              src={SeedBombLogo} 
+              sx={{ width: 'auto', height: '125px', borderRadius: '8%', display: 'block' }}
+              />
           </Box>
             {/* pages */}
           <Stack direction="row" spacing={3}  

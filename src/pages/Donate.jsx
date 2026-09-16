@@ -4,6 +4,7 @@ import React from 'react';
 
 import {Container, Box, Typography, Button}  from '@mui/material';
 
+import FootnoteDivider from '../components/footnoteDivider';
 import Footnote from '../components/footnote';
 
 
@@ -22,13 +23,11 @@ export default function Donate() {
         </Box>
     </Container>
 
-    <Footnote fill={colors.skyBlue} />
+    {/* -------------- */}
+            {/* footnote */}
+        <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
 
-    <Box style={styles.footnote}>
-        <Typography style={styles.TextSmall}>
-            The Seed Bomb Project is fiscally sponsored by Creative Visions, a 501c3 nonprofit organization that supports creative activists, those that use the arts and media to ignite social change.
-        </Typography>
-    </Box>
+        <Footnote/>
     </>
 
     );

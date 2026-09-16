@@ -4,52 +4,70 @@ import {Box, Stack, Typography}  from '@mui/material';
 import colors from '../components/colorPalette'
 import '../index.css'
 import WaveDivider from '../components/waveDivider';
+import FootnoteDivider from '../components/footnoteDivider';
 import Footnote from '../components/footnote';
 import EventCard from '../components/eventCard';
 //import poppyImage from '../assets/poppy-header.jpg';
 
-
-
+//iamges
+import backgroundImage from '../assets/images/poppy1.jpg';
+import workshopImage1 from '../assets/images/girl_making_seed_bombs.JPG';
+import workshopImage2 from '../assets/images/Rummy_presentation.jpeg';
+import treeamsImage from '../assets/images/smiling_girl_from_st_marks.jpeg';
+import yeehawImage from '../assets/images/pink_hat_girl_making_seed_bomb.JPG';
+import steadfastImage from '../assets/images/Rummy_Rick_at_SteadfastLA_HR.jpeg';
+import avesonImage from '../assets/images/family_at_workshop.jpg';
+import yourNeighborImage from '../assets/images/your_neighbor_poster.png';
 
 const pastEvents = [
   {
     id: 1,
-    image: '',
+    image: yeehawImage,
     title: ' Yee Haw Day',
-    description: 'We had a booth at  Palisades Elementary Charter School’s annual Yee Haw Day. 70% of Pali Elementary students lost their homes along with their school. We had so much fun making seed bombs—591 of them!—with this amazing community.',
-  },
+    description: 'We had a booth at the Palisades Elementary Charter School’s annual Yee Haw Day. 70% of Pali Elementary students lost their homes along with their school. We had so much fun making seed bombs—591 of them!—with this amazing community.',
+    link: 'https://www.yeehawpali.com/',
+    linkText: 'Yee Haw Day',
+},
   {
     id: 2,
-    image: '',
+    image: treeamsImage,
     title: 'TREEAMS' ,
     description: 'We gave away seed bombs at the launch of TREEAMS, the late, great Jane Goodall’s program to plant 5,000 native trees in Los Angeles County.',
-  },
+    link: 'https://www.treeams.org/',
+    linkText: 'TREEAMS',
+},
   {
     id: 3,
-    image: '',
+    image: steadfastImage,
     title: 'Steadfast LA',
     description: 'We planted hundreds of seed bombs with Steadfast LA along Sunset Boulevard in Pacific Palisades. Highlights included introducing Rick Caruso to seed bombing, and watering with help from Station 69.',
-  },
+    link: 'https://www.steadfastla.com/',
+    linkText: 'Steadfast LA',
+},
   {
     id: 4,
-    image: '',
+    image: avesonImage,
     title: 'Aveson School Fall Festival',
     description: 'We gave out seed bombs to our Altadena neighbors affected by the Eaton Fire at the Aveson School of Leaders Fall Festival, deepening connections with another joyful and resilient LA community!',
-  },
-  {
+    link: 'https://www.aveson.org/aveson-school-of-leaders',
+    linkText: 'the Aveson School of Leaders',
+},
+    {
     id: 5,
     image: '',
-    title: 'Your Next Door Neighbor',
-    description: 'We gave away seed bombs to fire-affected families at Home for the Holidays, an immersive winter wonderland experience created by our friends at Your Next Door Neighbor. We will also be running a seed bomb making workshop.',
-
-
-  },
+    title: 'Community Gathering in Pacific Palisades',
+    description: 'On December 6, 2025, neighbors and friends gathered at our lot in the Alphabet Streets in Pacific Palisades to connect, share our stories, and pick up seed bombs to plant in their lots.',
+    link: '',
+    linkText: 'Pacific Palisades'
+},
   {
     id: 6,
-    image: '',
-    title: 'Community Gathering in Pacific Palisades',
-    description: 'On December 6, 2026, neighbors and friends gathered at our lot in the Alphabet Streets in Pacific Palisades to connect, share our stories, and pick up seed bombs to plant in their lots.',
-  }
+    image: yourNeighborImage,
+    title: 'Your Next Door Neighbor',
+    description: 'We gave away seed bombs to fire-affected families at Home for the Holidays, an immersive winter wonderland experience created by our friends at Your Next Door Neighbor. We will also be running a seed bomb making workshop.',
+    link: '',
+    linkText: '',
+  },
 ];
 
 
@@ -57,38 +75,49 @@ const pastEvents = [
 
 export default function Events () {
 
-
     return(
     <>
-        <Box
-            style={{
-                ...styles.coverSection,
-                //backgroundImage: `url(${poppyImage})`,
-            }}>
-            {/* poppy image header */}
-
+        <Box style={styles.coverImage}>
              <Typography style={styles.coverTitle}>
                 Bring the Seed Bomb Project to Your School
             </Typography>
         </Box>
 
-        <WaveDivider fill={colors.green}/>
+        <WaveDivider fill={colors.green} strokeColor={colors.white}/>
 
         <Box style={styles.eventsSection}>
-            {/* images */}
-             <Box sx={{ width: '100%', padding: '40px', display: 'flex', justifyContent: 'center' }}>
-                    <Stack direction='row' spacing={8} alignItems="center">
-                        <Typography>
-                            Placeholder Image
-                        </Typography>  
-                        <Typography>
-                            Placeholder Image
-                        </Typography>  
-                        <Typography>
-                            Placeholder Image
-                        </Typography>  
-                    </Stack>
+             {/* images */}
+                <Box sx={{ width: '100%', boxSizing: 'border-box', padding: { xs: '20px', md: '40px' }, display: 'flex', justifyContent: 'center' }}>
+                    <Box
+                    sx={{
+                        display: 'grid',
+                        gridTemplateColumns: {
+                            xs: '1fr',
+                            sm: '1fr',
+                            md: 'repeat(3, 1fr)',
+                        },
+                         gap: { xs: '30px', md: '64px' },
+                        width: '100%',
+                        maxWidth: '1200px',
+                        margin: '0 auto',
+                    }}>
+                    <Box 
+                        component="img"
+                        src={workshopImage1} 
+                        alt="A visual map of the Palisades fire area" 
+                        sx={{ objectFit: 'cover', width: '100%', height: '400px', borderRadius: '8px' }}
+                    />
+                    <Typography style={styles.SubtitleDark}>
+                        Placeholder for Video
+                    </Typography>
+                    <Box 
+                        component="img"
+                        src={workshopImage2} 
+                        alt="A visual map of the Palisades fire area" 
+                        sx={{ objectFit: 'cover', width: '100%', height: '400px', borderRadius: '8px' }}
+                    />
                 </Box>
+            </Box>
 
             <Typography style={styles.sectionTitleDark}>
                 Past Events
@@ -101,6 +130,8 @@ export default function Events () {
                 image={event.image}
                 title={event.title}
                 description={event.description}
+                link={event.link}
+                linkText={event.linkText}
                 styles={styles}
                 />
             ))}
@@ -114,7 +145,7 @@ export default function Events () {
                 Host a Seed Bomb Workshop for your community
             </Typography>
 
-            <Typography sx={{...styles.TextDark, paddingBottom: '40px'}}>
+            <Typography sx={{...styles.SubtitleDark, paddingBottom: '40px'}}>
                 Placeholder timelapse video
             </Typography>
 
@@ -127,13 +158,11 @@ export default function Events () {
 
 
 
-        <Footnote fill={colors.skyBlue} strokeColor={colors.orange}  />
+        {/* -------------- */}
+            {/* footnote */}
+        <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
 
-        <Box style={styles.footnote}>
-            <Typography style={styles.TextSmall}>
-                The Seed Bomb Project is fiscally sponsored by Creative Visions, a 501c3 nonprofit organization that supports creative activists, those that use the arts and media to ignite social change.
-            </Typography>
-        </Box>
+        <Footnote/>
     
     
     </>
@@ -174,14 +203,18 @@ schoolEventsSection:{
     textAlign: 'center',
 },
 
-footnote: {
-    boxSizing: 'border-box',
-    width: '100%',
+//background image
+coverImage: {
+    position: 'relative',
+    backgroundImage: `url(${backgroundImage})`, 
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '400px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: '60px',
     marginBottom: '60px',
-    backgroundColor: colors.skyBlue,
-    marginTop: '-2px',
-    padding: '60px 24px',
-    textAlign: 'center',
 },
 
 

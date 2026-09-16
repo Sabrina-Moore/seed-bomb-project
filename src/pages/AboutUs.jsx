@@ -6,6 +6,7 @@ import {Stack, Box, Typography}  from '@mui/material';
 import colors from '../components/colorPalette'
 import '../index.css'
 import WaveDivider from '../components/waveDivider';
+import FootnoteDivider from '../components/footnoteDivider';
 import Footnote from '../components/footnote';
 
 
@@ -13,26 +14,34 @@ const OurTeam = [
     {
         id: 1,
         name: "placeholder", 
+        image: '',
         role: "role",
         description: "Lorem ipsum dolor sit amet consectetur adipiscing elit cum tempore in aut ipsum et occaecat placeat pariatur ipsum qui mollitia enim duis consectetur est occaecat id dolore voluptatum provident ut consequat eligendi corrupti qui cum cumque nihil tempore irure autem assumenda nisi eiusmod omnis placeat tempor minus nulla dolor tempor.", 
+        link: '',
     }, 
     {
        id: 2,
         name: "placeholder", 
+        image: '',
         role: "role",
         description: "Lorem ipsum dolor sit amet consectetur adipiscing elit cum tempore in aut ipsum et occaecat placeat pariatur ipsum qui mollitia enim duis consectetur est occaecat id dolore voluptatum provident ut consequat eligendi corrupti qui cum cumque nihil tempore irure autem assumenda nisi eiusmod omnis placeat tempor minus nulla dolor tempor.", 
+        link: '',
     }, 
     {
         id: 3,
         name: "placeholder", 
+        image: '',
         role: "role",
         description: "Lorem ipsum dolor sit amet consectetur adipiscing elit cum tempore in aut ipsum et occaecat placeat pariatur ipsum qui mollitia enim duis consectetur est occaecat id dolore voluptatum provident ut consequat eligendi corrupti qui cum cumque nihil tempore irure autem assumenda nisi eiusmod omnis placeat tempor minus nulla dolor tempor.", 
+        link: '',
     }, 
     {
         id: 4,
-        name: "placeholder", 
+        name: "placeholder",
+        image: '', 
         role: "role",
         description: "Lorem ipsum dolor sit amet consectetur adipiscing elit cum tempore in aut ipsum et occaecat placeat pariatur ipsum qui mollitia enim duis consectetur est occaecat id dolore voluptatum provident ut consequat eligendi corrupti qui cum cumque nihil tempore irure autem assumenda nisi eiusmod omnis placeat tempor minus nulla dolor tempor.", 
+        link: '',
     }, 
 
 ]
@@ -81,13 +90,11 @@ export default function AboutUs () {
         </Stack>
     </Box>
 
-    <Footnote fill={colors.skyBlue} strokeColor={colors.white} />
-        
-    <Box style={styles.footnote}>
-        <Typography style={styles.TextSmall}>
-            The Seed Bomb Project is fiscally sponsored by Creative Visions, a 501c3 nonprofit organization that supports creative activists, those that use the arts and media to ignite social change.
-        </Typography>
-    </Box>
+    {/* -------------- */}
+    {/* footnote */}
+    <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.white} />
+
+    <Footnote/>
 </>
 );
 }
@@ -113,16 +120,6 @@ teamCards: {
     padding: '60px 24px',
     textAlign: 'center',
 },
-footnote: {
-    boxSizing: 'border-box',
-    width: '100%',
-    marginBottom: '60px',
-    backgroundColor: colors.skyBlue,
-    marginTop: '-2px',
-    padding: '60px 24px',
-    textAlign: 'center',
-},
-
 
 //font
 coverTitle: {

@@ -7,6 +7,7 @@ import Masonry from '@mui/lab/Masonry';
 import colors from '../components/colorPalette'
 import '../index.css'
 import WaveDivider from '../components/waveDivider';
+import FootnoteDivider from '../components/footnoteDivider';
 import Footnote from '../components/footnote';
 
 import { supabase } from '../../utils/supabase' 
@@ -53,7 +54,7 @@ export default function Gallery () {
         <Typography style={styles.coverTitle}>
             FROM ASHES TO ACTION
         </Typography>
-        <Masonry columns={3} spacing={2}>
+        <Masonry columns={2} spacing={2}>
             {images.map((img) => {
                 const { data: { publicUrl } } = supabase
                 .storage
@@ -78,13 +79,11 @@ export default function Gallery () {
     </Box>
 
 
-        <Footnote fill={colors.skyBlue} strokeColor={colors.white}  />
+        {/* -------------- */}
+            {/* footnote */}
+        <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.white} />
 
-        <Box style={styles.footnote}>
-            <Typography style={styles.TextSmall}>
-                The Seed Bomb Project is fiscally sponsored by Creative Visions, a 501c3 nonprofit organization that supports creative activists, those that use the arts and media to ignite social change.
-            </Typography>
-        </Box>
+        <Footnote/>
     
 
     </>
@@ -106,18 +105,6 @@ gallerySection: {
     padding: '20px 20px',
     textAlign: 'center',
 },
-
-footnote: {
-    boxSizing: 'border-box',
-    width: '100%',
-    marginBottom: '60px',
-    backgroundColor: colors.skyBlue,
-    marginTop: '-2px',
-    padding: '60px 24px',
-    textAlign: 'center',
-},
-
-
 //font
 coverTitle: {
     color: colors.white,
