@@ -5,7 +5,11 @@ import {Stack, Box, Typography}  from '@mui/material';
 import colors from '../components/colorPalette'
 import '../index.css'
 import WaveDivider from '../components/waveDivider';
+import FootnoteDivider from '../components/footnoteDivider';
 import Footnote from '../components/footnote';
+
+//images
+import starImage from '../assets/images/star_image.png';
 
 export default function SeedBombs() {
 
@@ -59,18 +63,20 @@ export default function SeedBombs() {
                     <Typography style={styles.TextDark}>
                         California poppies, evening primrose, California buckwheat, yarrow, and sunflowers are naturally drought tolerant and  thrive in a post-fire environment, healing the soil by extracting toxins and fixing nutrients. 
                     </Typography>
-                    {/* images */}
+                    <Box 
+                        component="img"
+                        src={starImage} 
+                        alt="Flowers blooming around a burned tree" 
+                        sx={{ width: '100%', maxHeight: '450px', objectFit: 'contain', borderRadius: '8px' }}
+                    />
                 </Box>
         </Stack>
 
-
         {/* 2nd row */}
         <Stack direction="row" style={styles.background}>
-
             {/* left item */}
             
             <Box style={styles.plantingSection}>
-                
                 {/* ingredients list */}
                 <Stack direction="column" spacing={1} sx={{alignItems:"center"}}>
                     <Typography style={styles.sectionTitleOrange}>
@@ -89,7 +95,9 @@ export default function SeedBombs() {
                         <Typography style={styles.TextDark}>
                             4. Wait for blooms. 
                         </Typography>
-                        {/* images/gif */}
+                        <Typography style={styles.SubtitleDark}>
+                            Placeholder video
+                        </Typography>
                     </Box>
                     
                 </Stack>
@@ -107,15 +115,11 @@ export default function SeedBombs() {
         </Stack>
     </Box>
 
-        {/* footnote */}
-    <Footnote fill={colors.skyBlue} strokeColor={colors.orange} />
+    {/* -------------- */}
+    {/* footnote */}
+    <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
 
-    <Box style={styles.footnote}>
-        <Typography style={styles.TextSmall}>
-            The Seed Bomb Project is fiscally sponsored by Creative Visions, a 501c3 nonprofit organization that supports creative activists, those that use the arts and media to ignite social change.
-        </Typography>
-    </Box>
-
+    <Footnote/>
 
     </>
 
@@ -130,42 +134,28 @@ backgroundColor: colors.white,
 },
 ingredientSection: {
     boxSizing: 'border-box',
-    marginBottom: '60px',
+    marginBottom: '20px',
     width: '100%',
-    padding: '60px',
+    padding: '40px',
     textAlign: 'left',
 },
 whatWeDoSection: {
     boxSizing: 'border-box',
     width: '100%',
-    marginBottom: '60px',
-    paddingBottom: '100px',
     textAlign: 'center',
 },
 nativeSeedsSection: {
     boxSizing: 'border-box',
     width: '100%',
-    marginBottom: '60px',
-    padding: '60px',
+    padding: '40px',
     textAlign: 'center',
 },
 plantingSection: {
     boxSizing: 'border-box',
     width: '100%',
-    marginBottom: '60px',
-    paddingBottom: '100px',
+    paddingBottom: '120px',
     textAlign: 'left',
 },
-footnote: {
-    boxSizing: 'border-box',
-    width: '100%',
-    marginBottom: '60px',
-    backgroundColor: colors.skyBlue,
-    marginTop: '-2px',
-    padding: '60px 24px',
-    textAlign: 'center',
-},
-
 
 //font
 coverTitle: {

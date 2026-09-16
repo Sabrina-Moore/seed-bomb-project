@@ -1,51 +1,44 @@
-import { Box } from '@mui/material';
+//footnote for bottom of each page
+
+import { Box, Typography } from '@mui/material';
+import colors from './colorPalette';
+import creativeVisions from '../assets/logos/creative_visions_logo.png';
 
 
-const styles = {
-waveWrapper: {
-    position: 'relative',
-    marginTop: '-140px', 
-    width: '100vw',
-    marginLeft: 'calc(-50vw + 50%)',
-    marginRight: 'calc(-50vw + 50%)',
-    lineHeight: 0,
-    zIndex: 1,
-},
-waveSvg: {
-    width: '100%',
-    display: 'block',
-    height: '100px',
-},
-}
 
+export default function Footnote () {
 
-function Footnote ({ fill, strokeColor = colors.orange, flip = false }) {
-
-    return(
-
-        <Box style={styles.waveWrapper}>
-            <svg
-                viewBox="0 0 1440 120"
-                preserveAspectRatio="none"
-                style={{
-                    ...styles.waveSvg,
-                    transform: flip ? 'scaleY(-1)' : 'none',
-                }}
-            >
-                <path
-                    fill={fill}
-                    d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z"
-                />
-                <path
-                    fill="none"
-                    stroke={strokeColor}
-                    strokeWidth="3"
-                    d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64"
-                />
-            </svg>
+    return (
+         <Box style={styles.footnote}>
+            <Typography style={styles.TextSmall}>
+                The Seed Bomb Project is fiscally sponsored by Creative Visions, a 501c3 nonprofit organization that supports creative activists, those that use the arts and media to ignite social change.
+            </Typography>
+            <Box 
+                component="img"
+                src={creativeVisions} 
+                alt="Creative Visions Logo" 
+                sx={{ width: 200, height: 'auto', marginTop: '10px', borderRadius: '8px' }}
+            />
         </Box>
-        
     );
 }
 
-export default Footnote;
+
+const styles = {
+footnote: {
+    boxSizing: 'border-box',
+    width: '100%',
+    backgroundColor: colors.skyBlue,
+    padding: '20px 24px',
+    textAlign: 'center',
+},
+TextSmall: {
+    color: colors.white,
+    fontFamily: 'var(--sans)',
+    fontSize: '14px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+}
+
+};
+

@@ -9,8 +9,10 @@ import { supabase } from '../../utils/supabase'
 
 import colors from '../components/colorPalette'
 import '../index.css'
+import FootnoteDivider from '../components/footnoteDivider';
 import Footnote from '../components/footnote';
 
+import seedBomberImage from '../assets/images/teenwithmuddyhands.JPG'
 
 const INTEREST_OPTIONS = ['Seed Bomb Making', 'Seed Bomb Distribution', 'Community Events', 'Sponsorship', 'In-Kind Donated Goods', 'In-Kind Donated Services', 'In-Kind Donated Space']
 
@@ -87,10 +89,10 @@ export default function GetInvolved () {
     <>
     <Box style={styles.pageSection}>
         <Box sx={{ width: '600px', margin: '0 auto' }}>
-            <Typography style={styles.missionTitle}>
+            <Typography style={styles.SubtitleOrange}>
             “What you do makes a difference, and you have to decide what kind of difference you want to make.”
         </Typography>
-        <Typography style={styles.missionTitle}>
+        <Typography style={styles.SubtitleOrange}>
             ― Jane Goodall
         </Typography>
         </Box>
@@ -98,7 +100,13 @@ export default function GetInvolved () {
             Become a seed bomber
         </Typography>
 
-        {/* image */}
+        <Box 
+            component="img"
+            src={seedBomberImage} 
+            alt="Seed Bomb maker with muddy hands" 
+            sx={{ width: '400px', height: '400px', margin: '0 auto' , borderRadius: '50%', objectFit: 'cover', display: 'block'}}
+        />
+
 
         {/* text form */}
         <Box
@@ -210,12 +218,11 @@ export default function GetInvolved () {
     </Box>
 
 
-    <Footnote fill={colors.skyBlue} strokeColor={colors.orange}  />
-    <Box style={styles.footnote}>
-        <Typography style={styles.TextSmall}>
-            The Seed Bomb Project is fiscally sponsored by Creative Visions, a 501c3 nonprofit organization that supports creative activists, those that use the arts and media to ignite social change.
-        </Typography>
-    </Box>
+    {/* -------------- */}
+            {/* footnote */}
+        <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
+
+        <Footnote/>
     </>
 
     );
@@ -236,17 +243,6 @@ pageSection: {
     paddingBottom: '80px',
     textAlign: 'center',
 },
-
-footnote: {
-    boxSizing: 'border-box',
-    width: '100%',
-    marginBottom: '60px',
-    backgroundColor: colors.skyBlue,
-    marginTop: '-2px',
-    padding: '60px 24px',
-    textAlign: 'center',
-},
-
 
 //font
 coverTitle: {
@@ -296,6 +292,15 @@ sectionTitleOrange: {
 },  
 Subtitle: {
     color: colors.white,
+    fontFamily: 'var(--sans)', 
+    fontStyle: 'italic',
+    fontWeight: 700,
+    fontSize: '25px',
+    paddingTop: '10px',
+    paddingBottom: '10px',
+},
+SubtitleOrange: {
+    color: colors.orange,
     fontFamily: 'var(--sans)', 
     fontStyle: 'italic',
     fontWeight: 700,
