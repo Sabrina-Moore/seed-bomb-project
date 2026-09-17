@@ -123,18 +123,28 @@ export default function Events () {
                 Past Events
             </Typography>
 
-            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 3, paddingBottom: '40px' }}>
-            {pastEvents.map((event) => (
-                <EventCard
-                key={event.id}
-                image={event.image}
-                title={event.title}
-                description={event.description}
-                link={event.link}
-                linkText={event.linkText}
-                styles={styles}
-                />
-            ))}
+           {/* eventCard to map pastEvents array */}
+            <Box sx={{ maxWidth: '1200px', margin: '0 auto', paddingLeft: '40px', paddingRight: '40px', boxSizing: 'border-box' }}>
+                <Box
+                    sx={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+                        gap: 3,
+                        paddingBottom: '40px',
+                    }}
+                >
+                {pastEvents.map((event) => (
+                    <EventCard
+                    key={event.id}
+                    image={event.image}
+                    title={event.title}
+                    description={event.description}
+                    link={event.link}
+                    linkText={event.linkText}
+                    styles={styles}
+                    />
+                ))}
+                </Box>
             </Box>
         </Box>
         
