@@ -150,7 +150,7 @@ export default function Home () {
            
 
             {/* Nat Geo Article Action section  */}
-            <Box sx={{ width: '100%', padding: '40px', display: 'flex', justifyContent: 'center' }}>
+            <Box sx={{ maxWidth: '1400px', margin: '0 auto', padding: '40px', display: 'flex', justifyContent: 'center' }}>
                 <Box sx={{ position: 'relative', display: 'inline-block' }}>
                         <Box 
                         component="img"
@@ -429,10 +429,13 @@ export default function Home () {
                 <Typography style={styles.Text}>
                     California poppies, sunflowers, yarrow, evening primrose. . . these are the “fire-followers,” amazing plants that thrive in the aftermath of a fire.
                 </Typography>
+            </Box>
+            <Box sx={{ maxWidth: '1400px', margin: '0 auto' }}>
                 <Typography style={styles.Text}>
                     These drought-tolerant plants stabilize and detoxify the soil, create habitat and food for birds and bees, and prevent invasive plants from taking over and presenting new fire hazards. They are iconic and beautiful and they will help prevent future disasters!
                 </Typography>
             </Box>
+    
             
 
             <Typography style={styles.SubtitleDark}>
@@ -448,11 +451,11 @@ export default function Home () {
                 <Box sx={{ width: '100%', maxWidth: '1200px', margin: '0 auto', marginBottom: '40px', padding: '0 40px', boxSizing: 'border-box' }}>
                    <Box
                     sx={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        justifyContent: 'center',
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))',
+                        justifyItems: 'center',
                         alignItems: 'center',
-                        gap: '24px',
+                        gap: '50px',
                     }}
                     >
                     {sponsors.map((sponsor) => (
@@ -600,7 +603,8 @@ donateButton: {
     fontWeight: 'bold',
     fontSize: '20px',
     fontStyle: 'italic',
-    maxWidth: '200px',
+    minWidth: '300px',
+    maxWidth: '300px',
     borderRadius: '30px',
     textTransform: 'none',
     paddingLeft: '24px',

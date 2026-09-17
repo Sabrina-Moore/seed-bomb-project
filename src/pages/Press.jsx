@@ -2,7 +2,7 @@
 //add button navigation to thumbnails
 //clean up design
 
-import {Container, Box, Typography, Button, Card, CardMedia, CardContent, CardActions, Grid}  from '@mui/material';
+import {Container, Box, Typography, Button, Card, CardActionArea, CardMedia, CardContent, CardActions, Grid}  from '@mui/material';
 
 import colors from '../components/colorPalette'
 import '../index.css'
@@ -19,6 +19,12 @@ import image6 from '../assets/articleThumbnails/article-westside-current.jpeg';
 import image7 from '../assets/articleThumbnails/article-circling-news.jpeg';
 import image8 from '../assets/articleThumbnails/article-national-geo.jpeg';
 
+import logo1 from '../assets/logos/circling_the_news_thumbnail.png';
+import logo2 from '../assets/logos/nbc_thumbnail.png';
+import logo3 from '../assets/logos/nat_geo_logo.png';
+import logo4 from '../assets/logos/la_times_thumbnail.png';
+import logo5 from '../assets/logos/westside_current_logo.png';
+
 
 //array of just works written by the Nonprofit
 const DanaAuthor = [
@@ -29,6 +35,7 @@ const DanaAuthor = [
         title: 'Can wildflowers heal the toxic mess the L.A. fires left behind?',
         date: '05-07-2026',
         thumbnail: image8,
+        logo: logo3, 
     },
 ]
 
@@ -41,6 +48,7 @@ const Articles = [
         title: 'Palisades Students Display ‘Banners of Hope’ to Heal Community',
         date: '6-6-2025',
         thumbnail: image1,
+        logo: "", 
     },
         {
         id: 2,
@@ -49,14 +57,16 @@ const Articles = [
         title: 'Middle School Student Leads Service Project to Beautify Palisades',
         date: '6-11-2025',
         thumbnail: image2,
+        logo: "", 
     },
         {
         id: 3,
         link: 'https://www.latimes.com/lifestyle/newsletter/2025-12-01/december-plants-newsletter',
         newspaper: 'Los Angeles Times',
         title: 'This mother and son are sowing purpose and hope, one wildflower at a time',
-        date: '',
+        date: '12-1-2025',
         thumbnail: image3,
+        logo: logo4, 
     },
         {
         id: 4,
@@ -65,6 +75,7 @@ const Articles = [
         title: 'Planting Seeds',
         date: '11-13-2025',
         thumbnail: image4,
+        logo: "", 
     },
         {
         id: 5,
@@ -73,6 +84,7 @@ const Articles = [
         title: '$104,000 in new grants approved for Palisades Fire rebuilding',
         date: '10-29-2025',
         thumbnail: image5,
+        logo: logo2, 
     },
         {
         id: 6,
@@ -81,6 +93,7 @@ const Articles = [
         title: 'Flower Meadows To Emerge Across Burn Zones this Spring Thanks to Seed Bomb Project',
         date: '01-09-2026',
         thumbnail: image6,
+        logo: logo5, 
     },
         {
         id: 7,
@@ -89,114 +102,151 @@ const Articles = [
         title: 'One Boy’s Effort to Bring Beauty Back to the Palisades',
         date: '01-15-2026',
         thumbnail: image7,
+        logo: logo1, 
     },
 ]
 
 export default function Press() {
 
+    //helper function to write time
+    function parseArticleDate(dateStr) {
+    if (!dateStr) return new Date(0);
+    const [month, day, year] = dateStr.split('-').map(Number);
+    return new Date(year, month - 1, day);
+    }
 
     //sort by date
+      const sortedArticles = [...Articles].sort(
+        (a, b) => parseArticleDate(b.date) - parseArticleDate(a.date)
+    );
+
+
 
     return(
     <>
     <Box style={styles.pageSection}>
 
-        <Typography style={styles.TextDark}>
+        <Typography sx={{...styles.SubtitleDark, margin: '20px'}}>
             Read Dana's article in the National Geographic
         </Typography>
 
-        <Box sx={{ display: 'flex', justifyContent: 'center'}}>
-        {DanaAuthor.map((article) => (
-            <Card
-                key={article.id}
-                sx={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    maxWidth: 345,
-                }}>
-                <Box
+        <Box sx={{ maxWidth: '800px', margin: '0 auto', paddingBottom: '60px', display: 'flex', justifyContent: 'center' }}>
+                    {DanaAuthor.map((article) => (
+                    <Card
+                        key={`${article.newspaper}-${article.id}`}
+                        sx={{
+                            height: '100%',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            maxWidth: '400px',
+                            width: '100%',
+                            border: '1px solid black',
+                        }}
+                    >
+                    <CardActionArea
+                    component="a"
+                    href={article.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
+                    >
+                    <Box
                     sx={{
                         width: '100%',
-                        maxHeight: 200,
                         aspectRatio: '16 / 9',
                         backgroundColor: 'grey.100',
                         overflow: 'hidden',
-                    }}>
-                    <CardMedia
+                        flexShrink: 0,
+                    }}
+                    >
+                        <CardMedia
                         component="img"
                         image={article.thumbnail || '/images/placeholder.jpg'}
                         alt={article.title}
-                        sx={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'contain',
-                        }}/>
-                </Box>
-                <CardContent>
-                    <Typography style={styles.SubtitleDark}>
-                        {article.title}
-                    </Typography>
-                    {article.date && (
-                        <Typography style={styles.textDark}>
-                            {article.date}
+                        sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                    </Box>
+
+                    <CardContent sx={{ px: 2, py: 1, '&:last-child': { pb: 1 } }}>
+                        <Typography style={styles.SubtitleDark} sx={{ lineHeight: 1.3, mb: 0.5 }}>
+                            {article.title}
                         </Typography>
-                    )}
-                </CardContent>
-            </Card>
-            ))}
+                        {article.date && (
+                            <Typography style={styles.textDark} sx={{ opacity: 0.7 }}>
+                                {article.date}
+                            </Typography>
+                        )}
+                    </CardContent>
+                    </CardActionArea>
+                </Card>
+                ))}
         </Box>
 
-                <br/>
-
-        <Typography style={styles.TextDark}>
+        <Typography sx={{...styles.SubtitleDark, margin: '20px'}}>
             Read about us in the news
         </Typography>
 
-            <Grid container spacing={4} justifyContent="center" sx={{ maxWidth: 1100, margin: '0 auto', paddingBottom: '60px'}}>
-                {Articles.map((article) => (
-                    // 1 per row on phones, 2 per row on tablets, 3 per row on desktop
-                    <Grid item xs={12} sm={6} md={4} key={article.id}>
-                        <Card
-                key={article.id}
-                sx={{
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    maxWidth: 345,
-                }}>
-                <Box
+        <Box sx={{ maxWidth: '900px', margin: '0 auto', paddingBottom: '60px' }}>
+            <Box
+            sx={{
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
+                justifyItems: 'center',
+                rowGap: 4,
+                columnGap: 2,
+            }}
+            >
+                {sortedArticles.map((article) => (
+                <Card
+                    key={`${article.newspaper}-${article.id}`}
+                    sx={{
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        maxWidth: '400px',
+                        width: '100%',
+                        border: '1px solid black',
+                    }}
+                >
+                    <CardActionArea
+                    component="a"
+                    href={article.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}
+                    >
+                    <Box
                     sx={{
                         width: '100%',
-                        maxHeight: 200,
                         aspectRatio: '16 / 9',
                         backgroundColor: 'grey.100',
                         overflow: 'hidden',
-                    }}>
-                    <CardMedia
+                        flexShrink: 0,
+                    }}
+                    >
+                        <CardMedia
                         component="img"
                         image={article.thumbnail || '/images/placeholder.jpg'}
                         alt={article.title}
-                        sx={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'contain',
-                        }}/>
-                </Box>
-                <CardContent>
-                    <Typography style={styles.SubtitleDark}>
-                        {article.title}
-                    </Typography>
-                    {article.date && (
-                        <Typography style={styles.textDark}>
-                            {article.date}
+                        sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                    </Box>
+
+                    <CardContent sx={{ px: 2, py: 1, '&:last-child': { pb: 1 } }}>
+                        <Typography style={styles.SubtitleDark} sx={{ lineHeight: 1.3, mb: 0.5 }}>
+                            {article.title}
                         </Typography>
-                    )}
-                </CardContent>
-            </Card>
-                    </Grid>
-                ))}
-            </Grid>
+                        {article.date && (
+                            <Typography style={styles.textDark} sx={{ opacity: 0.7 }}>
+                                {article.date}
+                            </Typography>
+                        )}
+                    </CardContent>
+                    </CardActionArea>
+                </Card>
+            ))}
+            </Box>
+        </Box>
     </Box>
 
         {/* -------------- */}
@@ -277,8 +327,6 @@ sectionTitleOrange: {
     fontStyle: 'italic',
     fontWeight: 700,
     fontSize: '30px',
-    paddingTop: '10px',
-    paddingBottom: '10px',
 },  
 Subtitle: {
     color: colors.white,
@@ -295,8 +343,7 @@ SubtitleDark: {
     fontStyle: 'italic',
     fontWeight: 700,
     fontSize: '20px',
-    paddingTop: '10px',
-    paddingBottom: '10px',
+
 },
 Caption: {
     color: colors.white,
@@ -330,8 +377,6 @@ TextDark: {
     color: colors.navyBlue,
     fontFamily: 'var(--sans)',
     fontSize: '18px',
-    paddingTop: '10px',
-    paddingBottom: '10px',
 },
 TextSmall: {
     color: colors.white,
