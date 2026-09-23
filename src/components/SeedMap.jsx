@@ -120,7 +120,7 @@ export default function SeedMap() {
 
       <Dialog
         open={Boolean(pendingCoords)}
-        onClose={() => setPendingCoords(null)}
+        onClose={() => { setPendingCoords(null); setNote(""); }}
         fullWidth
         maxWidth="xs"
       >
@@ -139,7 +139,7 @@ export default function SeedMap() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setPendingCoords(null)}>Cancel</Button>
+          <Button onClick={() => { setPendingCoords(null); setNote(""); }}>Cancel</Button>
           <Button
             variant="contained"
             sx={{ backgroundColor: colors.green }}
