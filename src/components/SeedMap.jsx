@@ -101,10 +101,9 @@ export default function SeedMap() {
         severity: "success",
         message: "Pin dropped — thanks for planting! 🌸",
       });
+      setPendingCoords(null);
+      setNote("");
     }
-
-    setPendingCoords(null);
-    setNote("");
   }
 
   return (
