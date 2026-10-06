@@ -46,6 +46,9 @@ export default function SeedMap() {
     map.addControl(new maplibregl.NavigationControl(), "top-right");
     map.on("load", loadExistingPins);
     map.on("click", (e) => {
+      // added code so if clicking on an existing event, it doesn't open dialog
+      if (e.originalEvent.target.closest(".maplibregl-marker"))
+        return;
       setPendingCoords({ lat: e.lngLat.lat, lng: e.lngLat.lng });
     });
 
