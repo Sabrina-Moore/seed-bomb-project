@@ -16,6 +16,7 @@ import { supabase } from "../../utils/supabase";
 import colors from "./colorPalette";
 
 // Rough bounding box around mainland LA County
+
 const LA_COUNTY_BOUNDS = [
   [-118.95, 33.7], // southwest corner
   [-117.65, 34.82], // northeast corner
@@ -38,8 +39,8 @@ export default function SeedMap() {
       container: containerRef.current,
       style: "https://tiles.openfreemap.org/styles/liberty",
       center: LA_COUNTY_CENTER,
-      zoom: 9,
-      minZoom: 8,
+      zoom: 11,
+      minZoom: 6,
       maxBounds: LA_COUNTY_BOUNDS,
     });
 
@@ -47,8 +48,7 @@ export default function SeedMap() {
     map.on("load", loadExistingPins);
     map.on("click", (e) => {
       // added code so if clicking on an existing event, it doesn't open dialog
-      if (e.originalEvent.target.closest(".maplibregl-marker"))
-        return;
+      if (e.originalEvent.target.closest(".maplibregl-marker")) return;
       setPendingCoords({ lat: e.lngLat.lat, lng: e.lngLat.lng });
     });
 
@@ -123,7 +123,10 @@ export default function SeedMap() {
 
       <Dialog
         open={Boolean(pendingCoords)}
-        onClose={() => { setPendingCoords(null); setNote(""); }}
+        onClose={() => {
+          setPendingCoords(null);
+          setNote("");
+        }}
         fullWidth
         maxWidth="xs"
       >
@@ -142,7 +145,14 @@ export default function SeedMap() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => { setPendingCoords(null); setNote(""); }}>Cancel</Button>
+          <Button
+            onClick={() => {
+              setPendingCoords(null);
+              setNote("");
+            }}
+          >
+            Cancel
+          </Button>
           <Button
             variant="contained"
             sx={{ backgroundColor: colors.green }}
