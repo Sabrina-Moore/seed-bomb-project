@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import * as maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import "../index.css";
+import mapPin from "../assets/map-pin.png"; //added map pin marker
 import {
   Box,
   Dialog,
@@ -70,12 +72,19 @@ export default function SeedMap() {
   }
 
   function addMarkerToMap(pin) {
-    new maplibregl.Marker({ color: colors.orange })
+    //new marker 
+      const markerElement = document.createElement("img");
+      markerElement.src = mapPin;
+      markerElement.alt = "Seed bomb planted";
+      markerElement.style.width = "36px";
+      markerElement.style.height = "36px";
+
+      new maplibregl.Marker({ element: markerElement, anchor: "bottom" })
       .setLngLat([pin.lng, pin.lat])
       .setPopup(
-        new maplibregl.Popup({ offset: 24 }).setHTML(
-          `<strong>Seed bomb planted here 🌱</strong><br/>${
-            pin.notes ? pin.notes.replace(/</g, "&lt;") : "No notes left."
+        new maplibregl.Popup({ offset: 24, className: "pin-popup"  }).setHTML(
+          `${
+            pin.notes ? pin.notes.replace(/</g, "&lt;") : "No Description."
           }<br/><em>${new Date(pin.created_at).toLocaleDateString()}</em>`,
         ),
       )
@@ -129,19 +138,24 @@ export default function SeedMap() {
         }}
         fullWidth
         maxWidth="xs"
+        slotProps={{ paper: { sx: { borderRadius: 4 } } }} //rounded edges
       >
-        <DialogTitle>Drop a seed bomb pin</DialogTitle>
+        <DialogTitle sx={{color: colors.orange}}>Drop Your Pin</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
             fullWidth
             multiline
             minRows={2}
-            label="Notes (optional)"
+            label="Description (optional)"
             placeholder="e.g. planted near the trailhead by the creek"
             value={note}
             onChange={(e) => setNote(e.target.value)}
-            sx={{ mt: 1 }}
+            sx={{ mt: 1, 
+               "& .MuiOutlinedInput-root": { color: colors.orange },
+                "& .MuiInputLabel-root": { color: colors.navyBlue },
+                "& .MuiInputBase-input::placeholder": { color: colors.navyBlue, opacity: 0.6 },
+            }} //making dialog text more visual
           />
         </DialogContent>
         <DialogActions>
@@ -177,3 +191,4 @@ export default function SeedMap() {
     </Box>
   );
 }
+
