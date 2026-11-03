@@ -15,7 +15,7 @@ export default function SeedBombs() {
 
     return(
     <>
-        <Box sx={{ overflowX: "hidden" }}>
+        <Box sx={{ overflowX: "hidden", position: 'relative', }}>
             {/* top row*/}
             <Stack  direction={{ xs: "column", md: "row" }}
             sx={{ backgroundColor: colors.white }}>
@@ -65,7 +65,7 @@ export default function SeedBombs() {
                         component="img"
                         src={starImage} 
                         alt="Image shows flowers blooming around a burned tree" 
-                        sx={{ width: '100%', maxHeight: '450px', objectFit: 'contain', borderRadius: '8px' }}
+                        sx={{ width: '100%', maxHeight: '200px', objectFit: 'contain', borderRadius: '8px' }}
                     />
                 </Box>
             </Stack>
@@ -106,17 +106,22 @@ export default function SeedBombs() {
                             We give seed bombs to people impacted by wildfires so they can transform their cleared lots into vibrant pollinator meadows. We don’t use them in wild spaces or on private property without permission.
                         </Typography>    
                  </Box>
+
+
+                 <Box sx={{marginBottom: "40px"}}>
+                    {/* blank section to create spacing before footnote */}
+                 </Box>
+                 
+            
             </Stack>
-         </Box>
+            
+            {/* footnote */}
+            <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
 
+         </Box> 
     {/* -------------- */}
-    {/* footnote */}
-    <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
-
     <Footnote/>
-
     </>
-
     );
 }
 
@@ -124,7 +129,7 @@ export default function SeedBombs() {
 const styles = {
 //sections
 background: {
-backgroundColor: colors.white,
+    backgroundColor: colors.white,
 },
 ingredientSection: {
     boxSizing: "border-box",
@@ -137,7 +142,6 @@ whatWeDoSection: {
     width: "100%",
     padding: { xs: "24px 16px", md: "40px" },
     textAlign: 'left',
-    //TODO need to fix padding for footnote
 },
 nativeSeedsSection: {
     boxSizing: "border-box",

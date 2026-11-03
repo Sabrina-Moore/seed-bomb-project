@@ -5,13 +5,12 @@ import colors from './colorPalette';
 
 const styles = {
 waveWrapper: {
-    position: 'relative',
-    marginTop: '-140px', 
-    width: '100vw',
-    marginLeft: 'calc(-50vw + 50%)',
-    marginRight: 'calc(-50vw + 50%)',
+   position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: '-1px',     
     lineHeight: 0,
-    zIndex: 1,
+    pointerEvents: 'none',
 },
 waveSvg: {
     width: '100%',

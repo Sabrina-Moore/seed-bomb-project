@@ -1,11 +1,10 @@
 //need images
-
 import { Stack, Box, Typography, Button } from "@mui/material";
 
 import colors from "../components/colorPalette";
 import "../index.css";
 
-import WaveDivider from "../components/waveDivider";
+import WaveDivider from "../components/WaveDivider";
 import FootnoteDivider from "../components/footnoteDivider";
 import Footnote from "../components/footnote";
 import SeedMap from "../components/SeedMap";
@@ -70,10 +69,10 @@ export default function Home() {
       {/* background cover image and title*/}
       <Box style={styles.coverImage}>
         <Typography style={styles.coverTitle}>The Seed Bomb Project</Typography>
+
+      <WaveDivider fill={colors.orange} strokeColor={colors.white}/>
       </Box>
 
-      {/* swirly wave divider */}
-      <WaveDivider fill={colors.orange} strokeColor={colors.white} />
 
       {/* ------------------ */}
       {/* mission statement */}
@@ -252,11 +251,12 @@ export default function Home() {
                 borderRadius: "8px",
               }}
             />
+            
           </Box>
         </Box>
+      <WaveDivider fill={colors.skyBlue} strokeColor={colors.white}/>
       </Box>
 
-      <WaveDivider fill={colors.skyBlue} strokeColor={colors.white} />
 
       {/* ------------------ */}
       {/* map engine section */}
@@ -312,9 +312,9 @@ export default function Home() {
             </Typography>
           </Box>
         </Stack>
+      <WaveDivider fill={colors.green} strokeColor={colors.white}/>
       </Box>
 
-      <WaveDivider fill={colors.green} strokeColor={colors.white} />
 
       {/* ------------------ */}
       {/* hands on restoration section */}
@@ -384,9 +384,9 @@ export default function Home() {
             />
           </Box>
         </Box>
+      <WaveDivider fill={colors.orange} strokeColor={colors.white}/>
       </Box>
 
-      <WaveDivider fill={colors.orange} strokeColor={colors.white} />
 
       {/* ------------------ */}
       {/* healing section */}
@@ -468,10 +468,11 @@ export default function Home() {
             </Box>
           </Stack>
         </Box>
+      <WaveDivider fill={colors.skyBlue} strokeColor={colors.green}/>
       </Box>
 
-      {/* swirly wave divider restoration (green) -> Native Seeds (blue) */}
-      <WaveDivider fill={colors.skyBlue} strokeColor={colors.white} />
+
+
 
       {/* ------------------ */}
       {/* Why native seeds? section */}
@@ -488,7 +489,7 @@ export default function Home() {
           <Stack 
            direction={{ xs: "column", md: "row" }}
             spacing={{ xs: 3, md: 8 }}
-            alignItems="center"
+            sx={{alignItems: "center"}}
             >
             <Box
               component="img"
@@ -530,9 +531,9 @@ export default function Home() {
         <Typography style={styles.SubtitleDark}>
           Placeholder for video
         </Typography>
-      </Box>
 
-      <WaveDivider fill={colors.white} strokeColor={colors.orange} />
+      <WaveDivider fill={colors.white} strokeColor={colors.green}/>
+      </Box>
 
       {/* ------------------- */}
       {/* Partner with us */}
@@ -582,12 +583,13 @@ export default function Home() {
         >
           Partner With Us
         </Button>
+
+       <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
+      
       </Box>
 
       {/* -------------- */}
       {/* footnote */}
-      <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
-
       <Footnote />
     </>
   );
@@ -596,61 +598,54 @@ export default function Home() {
 const styles = {
   //sections
   missionSection: {
+    position: 'relative',
     boxSizing: "border-box",
     width: "100%",
-    marginBottom: "60px",
     backgroundColor: colors.orange,
-    paddingBottom: "100px", //text space
+    paddingBottom: "100px", 
     textAlign: "center",
   },
   engineSection: {
+    position: 'relative',
     boxSizing: "border-box",
     width: "100%",
-    marginBottom: "60px",
     backgroundColor: colors.skyBlue,
-    paddingBottom: "100px", //text space
+    paddingBottom: "100px",
     textAlign: "center",
   },
   restorationSection: {
+    position: 'relative',
     boxSizing: "border-box",
     width: "100%",
-    marginBottom: "60px", //color
     backgroundColor: colors.green,
-    paddingBottom: "100px", //text space
+    paddingBottom: "100px",
     textAlign: "center",
   },
   healingSection: {
+    position: 'relative',
     boxSizing: "border-box",
     width: "100%",
-    marginBottom: "60px",
     backgroundColor: colors.orange,
-    paddingBottom: "100px", //text space
+    paddingBottom: "100px",
     textAlign: "center",
   },
   nativeSeedsSection: {
+    position: 'relative',
     boxSizing: "border-box",
     width: "100%",
-    marginBottom: "60px",
     backgroundColor: colors.skyBlue,
     paddingBottom: "100px",
     textAlign: "center",
   },
   partnerSection: {
+    position: "relative", 
     boxSizing: "border-box",
     width: "100%",
-    marginBottom: "60px",
     backgroundColor: colors.white,
-    paddingBottom: "100px", //text space
+    paddingBottom: "100px", 
     textAlign: "center",
   },
-  footnote: {
-    boxSizing: "border-box",
-    width: "100%",
-    marginBottom: "60px",
-    backgroundColor: colors.skyBlue,
-    paddingBottom: "100px", //text space
-    textAlign: "center",
-  },
+
 
   //images
   coverImage: {
@@ -662,8 +657,6 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    paddingBottom: "60px",
-    marginBottom: "60px",
   },
   engineImage: {
     position: "relative",
@@ -853,7 +846,6 @@ const styles = {
     paddingBottom: "10px",
   },
 
-  //map engine
   //map engine
   mapWrapper: {
     boxSizing: "border-box",

@@ -212,38 +212,32 @@ export default function GetInvolved () {
                 type="submit"
                 variant="contained"
                 disabled={submitting}
-                sx={{ marginTop: '20px' }}
+                sx={{ marginTop: '20px', marginBottom: '40px' }}
             >
                 {submitting ? 'Submitting...' : 'Sign up'}
             </Button>
+
+        {/* footnote */}
+        <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
         </Box>
     </Box>
 
-
     {/* -------------- */}
-            {/* footnote */}
-        <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
-
-        <Footnote/>
-    </>
-
-    );
+    <Footnote/>
+ </>
+ );
 }
-
-
-
 
 
 const styles = {
 //sections
 pageSection: {
+     position: 'relative',
     boxSizing: 'border-box',
     width: '100%',
     backgroundColor: colors.white,
-    marginBottom: '60px',
-    marginTop: '-2px',
-    paddingBottom: '80px',
     textAlign: 'center',
+    paddingBottom: '100px',
 },
 
 //font

@@ -5,7 +5,6 @@ import {Stack, Box, Typography}  from '@mui/material';
 
 import colors from '../components/colorPalette'
 import '../index.css'
-import WaveDivider from '../components/waveDivider';
 import FootnoteDivider from '../components/footnoteDivider';
 import Footnote from '../components/footnote';
 
@@ -88,13 +87,15 @@ export default function AboutUs () {
             ))}
             </Box>    
         </Stack>
+
+        {/* footnote */}
+        <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.white} />
+
     </Box>
 
     {/* -------------- */}
-    {/* footnote */}
-    <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.white} />
-
     <Footnote/>
+
 </>
 );
 }
@@ -105,11 +106,10 @@ const styles = {
 pageSection: {
     boxSizing: 'border-box',
     width: '100%',
-    marginBottom: '60px',
     backgroundColor: colors.darkOrange,
-    marginTop: '-2px',
     padding: '60px 24px',
     textAlign: 'center',
+    position: 'relative',
 },
 teamCards: {
     boxSizing: 'border-box',
@@ -159,7 +159,6 @@ sectionTitleDark: {
     paddingTop: '10px',
     paddingBottom: '10px',
 },  
-
 sectionTitleOrange: {
     color: colors.darkOrange,
     fontFamily: 'var(--sans)', 
@@ -169,7 +168,6 @@ sectionTitleOrange: {
     paddingTop: '10px',
     paddingBottom: '10px',
 },  
-
 Subtitle: {
     color: colors.white,
     fontFamily: 'var(--sans)', 

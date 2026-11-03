@@ -6,7 +6,7 @@ import Masonry from '@mui/lab/Masonry';
 
 import colors from '../components/colorPalette'
 import '../index.css'
-import WaveDivider from '../components/waveDivider';
+import WaveDivider from '../components/WaveDivider';
 import FootnoteDivider from '../components/footnoteDivider';
 import Footnote from '../components/footnote';
 
@@ -74,17 +74,17 @@ export default function Gallery () {
             })}
         </Masonry>
 
-        <br/>
+        {/* spacing */}
+        <Box sx={{marginBottom: '40px'}}> </Box> 
 
+     {/* footnote */}
+    <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.white} />
     </Box>
 
 
-        {/* -------------- */}
-            {/* footnote */}
-        <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.white} />
+    {/* -------------- */}
+    <Footnote/>
 
-        <Footnote/>
-    
 
     </>
 
@@ -97,10 +97,10 @@ export default function Gallery () {
 const styles = {
 //sections
 gallerySection: {
+    position: 'relative',
     boxSizing: 'border-box',
     width: '100%',
     backgroundColor: colors.orange,
-    marginBottom: '60px',
     marginTop: '-2px',
     padding: '20px 20px',
     textAlign: 'center',

@@ -3,7 +3,7 @@ import {Box, Stack, Typography}  from '@mui/material';
 
 import colors from '../components/colorPalette'
 import '../index.css'
-import WaveDivider from '../components/waveDivider';
+import WaveDivider from '../components/WaveDivider';
 import FootnoteDivider from '../components/footnoteDivider';
 import Footnote from '../components/footnote';
 import EventCard from '../components/eventCard';
@@ -81,9 +81,8 @@ export default function Events () {
              <Typography sx={styles.coverTitle}>
                 Bring the Seed Bomb Project to Your School
             </Typography>
+             <WaveDivider fill={colors.green} strokeColor={colors.orange}/>
         </Box>
-
-        <WaveDivider fill={colors.green} strokeColor={colors.white}/>
 
         <Box sx={styles.eventsSection}>
              {/* images */}
@@ -117,6 +116,7 @@ export default function Events () {
                         sx={{ objectFit: 'cover', width: '100%', height: { xs: '260px', md: '400px' }, borderRadius: '8px' }}
                     />
                 </Box>
+                
             </Box>
 
             <Typography sx={styles.sectionTitleDark}>
@@ -146,9 +146,13 @@ export default function Events () {
                 ))}
                 </Box>
             </Box>
+            {/* extra spacing */}
+            <br/> 
+
+            <WaveDivider fill={colors.white} strokeColor={colors.orange}/>
         </Box>
-        
-        <WaveDivider fill={colors.white} />
+
+    
 
         <Box sx={styles.schoolEventsSection}>
             <Typography sx={styles.sectionTitleDark}>
@@ -163,15 +167,10 @@ export default function Events () {
                 More info here about what it's like hosting an event.
             </Typography>
 
-        </Box>
-
-
-
-
-        {/* -------------- */}
-            {/* footnote */}
+        {/* footnote */}
         <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
-
+        </Box>
+        {/* -------------- */}
         <Footnote/>
     
     
@@ -186,6 +185,7 @@ export default function Events () {
 const styles = {
 //sections
 coverSection: {
+    position: 'relative',
     width: '100%',
     minHeight: '400px', 
     backgroundSize: 'cover',
@@ -198,12 +198,14 @@ coverSection: {
 },
 eventsSection: {
     boxSizing: 'border-box',
+    position: 'relative',
     width: '100%',
     backgroundColor: colors.green,
     padding: { xs: '30px 16px', md: '60px' },
     textAlign: 'center',
 },
 schoolEventsSection:{
+    position: 'relative',
     boxSizing: 'border-box',
     width: '100%',
     backgroundColor: colors.white,
