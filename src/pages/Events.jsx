@@ -77,17 +77,17 @@ export default function Events () {
 
     return(
     <>
-        <Box style={styles.coverImage}>
-             <Typography style={styles.coverTitle}>
+        <Box sx={styles.coverImage}>
+             <Typography sx={styles.coverTitle}>
                 Bring the Seed Bomb Project to Your School
             </Typography>
         </Box>
 
         <WaveDivider fill={colors.green} strokeColor={colors.white}/>
 
-        <Box style={styles.eventsSection}>
+        <Box sx={styles.eventsSection}>
              {/* images */}
-                <Box sx={{ width: '100%', boxSizing: 'border-box', padding: { xs: '20px', md: '40px' }, display: 'flex', justifyContent: 'center' }}>
+                <Box sx={{ width: '100%', boxSizing: 'border-box', padding: { xs: '16px 0', md: '40px 0' }, display: 'flex', justifyContent: 'center' }}>
                     <Box
                     sx={{
                         display: 'grid',
@@ -105,30 +105,30 @@ export default function Events () {
                         component="img"
                         src={workshopImage1} 
                         alt="A visual map of the Palisades fire area" 
-                        sx={{ objectFit: 'cover', width: '100%', height: '400px', borderRadius: '8px' }}
+                        sx={{ objectFit: 'cover', width: '100%', height: { xs: '260px', md: '400px' }, borderRadius: '8px' }}
                     />
-                    <Typography style={styles.SubtitleDark}>
+                    <Typography sx={styles.SubtitleDark}>
                         Placeholder for Video
                     </Typography>
                     <Box 
                         component="img"
                         src={workshopImage2} 
                         alt="A visual map of the Palisades fire area" 
-                        sx={{ objectFit: 'cover', width: '100%', height: '400px', borderRadius: '8px' }}
+                        sx={{ objectFit: 'cover', width: '100%', height: { xs: '260px', md: '400px' }, borderRadius: '8px' }}
                     />
                 </Box>
             </Box>
 
-            <Typography style={styles.sectionTitleDark}>
+            <Typography sx={styles.sectionTitleDark}>
                 Past Events
             </Typography>
 
            {/* eventCard to map pastEvents array */}
-            <Box sx={{ maxWidth: '1200px', margin: '0 auto', paddingLeft: '40px', paddingRight: '40px', boxSizing: 'border-box' }}>
+            <Box sx={{ maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
                 <Box
                     sx={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))',
                         gap: 3,
                         paddingBottom: '40px',
                     }}
@@ -150,8 +150,8 @@ export default function Events () {
         
         <WaveDivider fill={colors.white} />
 
-        <Box style={styles.schoolEventsSection}>
-            <Typography style={styles.sectionTitleDark}>
+        <Box sx={styles.schoolEventsSection}>
+            <Typography sx={styles.sectionTitleDark}>
                 Host a Seed Bomb Workshop for your community
             </Typography>
 
@@ -200,31 +200,29 @@ eventsSection: {
     boxSizing: 'border-box',
     width: '100%',
     backgroundColor: colors.green,
-    padding: '60px',
-    marginBottom: '60px',
+    padding: { xs: '30px 16px', md: '60px' },
     textAlign: 'center',
 },
 schoolEventsSection:{
     boxSizing: 'border-box',
     width: '100%',
     backgroundColor: colors.white,
-    padding: '40px',
-    marginBottom: '60px',
+    padding: { xs: '24px 16px', md: '40px' },
     textAlign: 'center',
 },
 
 //background image
 coverImage: {
     position: 'relative',
-    backgroundImage: `url(${backgroundImage})`, 
+    backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    height: '400px',
+    height: { xs: '260px', md: '400px' },
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: '60px',
-    marginBottom: '60px',
+    boxSizing: 'border-box',
+    px: { xs: 2, md: 0 },
 },
 
 
@@ -234,7 +232,7 @@ coverTitle: {
     fontFamily: 'var(--heading)', 
     fontWeight: 900,
     fontStyle: 'italic',
-    fontSize: '50px',
+    fontSize: { xs: '30px', md: '50px' },
     textAlign: 'center',
     textShadow: '0 2px 8px rgba(0,0,0,0.3)',
 },
@@ -252,7 +250,7 @@ sectionTitle: {
     fontFamily: 'var(--sans)', 
     fontStyle: 'italic',
     fontWeight: 700,
-    fontSize: '30px',
+    fontSize: { xs: '24px', md: '30px' },
     paddingTop: '10px',
     paddingBottom: '10px',
 },  
@@ -261,7 +259,7 @@ sectionTitleDark: {
     fontFamily: 'var(--sans)', 
     fontStyle: 'italic',
     fontWeight: 700,
-    fontSize: '30px',
+    fontSize: { xs: '24px', md: '30px' },
     paddingTop: '10px',
     paddingBottom: '10px',
 },  
@@ -270,7 +268,7 @@ sectionTitleOrange: {
     fontFamily: 'var(--sans)', 
     fontStyle: 'italic',
     fontWeight: 700,
-    fontSize: '30px',
+    fontSize: { xs: '24px', md: '30px' },
     paddingTop: '10px',
     paddingBottom: '10px',
 },  
@@ -279,7 +277,7 @@ Subtitle: {
     fontFamily: 'var(--sans)', 
     fontStyle: 'italic',
     fontWeight: 700,
-    fontSize: '25px',
+    fontSize: { xs: '20px', md: '25px' },
     paddingTop: '10px',
     paddingBottom: '10px',
 },
@@ -288,7 +286,7 @@ SubtitleDark: {
     fontFamily: 'var(--sans)', 
     fontStyle: 'italic',
     fontWeight: 700,
-    fontSize: '25px',
+    fontSize: { xs: '20px', md: '25px' },
     paddingTop: '10px',
     paddingBottom: '10px',
 },
@@ -302,28 +300,28 @@ Caption: {
 Text: {
     color: colors.white,
     fontFamily: 'var(--sans)', 
-    fontSize: '18px',
+    fontSize: { xs: '16px', md: '18px' },
     paddingTop: '10px',
     paddingBottom: '10px',
 },
 TextOrange: {
     color: colors.darkOrange,
     fontFamily: 'var(--sans)',
-    fontSize: '18px',
+    fontSize: { xs: '16px', md: '18px' },
     paddingTop: '10px',
     paddingBottom: '10px',
 },
 TextGreen: {
     color: colors.green,
     fontFamily: 'var(--sans)',
-    fontSize: '18px',
+    fontSize: { xs: '16px', md: '18px' },
     paddingTop: '10px',
     paddingBottom: '10px',
 },
 TextDark: {
     color: colors.navyBlue,
     fontFamily: 'var(--sans)',
-    fontSize: '18px',
+    fontSize: { xs: '16px', md: '18px' },
     paddingTop: '10px',
     paddingBottom: '10px',
 },

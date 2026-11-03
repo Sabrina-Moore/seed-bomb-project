@@ -87,16 +87,17 @@ export default function GetInvolved () {
 
     return(
     <>
-    <Box style={styles.pageSection}>
-        <Box sx={{ width: '600px', margin: '0 auto' }}>
+    <Box sx={styles.pageSection}>
+        <Box sx={{ width: '100%', maxWidth: '600px', margin: '0 auto' }}>
             <Typography style={styles.SubtitleOrange}>
             “What you do makes a difference, and you have to decide what kind of difference you want to make.”
         </Typography>
-        <Typography style={styles.SubtitleOrange}>
+        <Typography sx={styles.SubtitleOrange}>
             ― Jane Goodall
         </Typography>
         </Box>
-        <Typography style={styles.sectionTitleDark}>
+
+        <Typography sx={styles.sectionTitleDark}>
             Become a seed bomber
         </Typography>
 
@@ -104,7 +105,7 @@ export default function GetInvolved () {
             component="img"
             src={seedBomberImage} 
             alt="Seed Bomb maker with muddy hands" 
-            sx={{ width: '400px', height: '400px', margin: '0 auto' , borderRadius: '50%', objectFit: 'cover', display: 'block'}}
+            sx={{ width: '100%', maxWidth: '400px', aspectRatio: '1/1', height: 'auto', margin: '0 auto 24px' , borderRadius: '50%', objectFit: 'cover', display: 'block'}}
         />
 
 
@@ -113,7 +114,7 @@ export default function GetInvolved () {
         component="form"
             onSubmit={handleSubmit}
             sx={{ maxWidth: 500, margin: '0 auto' }}>
-            <Stack direction="row" spacing={2} sx={{ padding: '20px 0' }}>
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ padding: '20px 0' }}>
                 <TextField 
                     name="firstName"
                     label="First"
@@ -152,14 +153,15 @@ export default function GetInvolved () {
                         <Typography
                             component="label"
                             htmlFor="zone-select"
-                            style={{ ...styles.TextDark, display: 'block', textAlign: 'left', paddingTop: 0, paddingBottom: '4px', fontSize: '18px' }}
+                            sx={{ ...styles.TextDark, display: 'block', textAlign: 'left', paddingTop: 0, paddingBottom: '4px', fontSize: '18px' }}
                         >
                             Which wildfire zone are you near?
                         </Typography>
                         <Select
-                            labelId="zone-select"
+                            id="zone-select"
+                            labelId="zone-label"
                             name="zone"
-                            value={formData.heardFrom}
+                            value={formData.zone}
                             onChange={handleChange}
                             sx={{
                                 '& .MuiSelect-select': { color: colors.navyBlue, fontFamily: 'var(--sans)' },
@@ -175,7 +177,7 @@ export default function GetInvolved () {
                     </FormControl>
                     <FormControl component="fieldset" sx={{ marginBottom: '20px' }}>
                         <FormLabel component="legend"
-                        style={{ ...styles.TextDark, display: 'block', textAlign: 'left', paddingTop: 0, paddingBottom: '4px', fontSize: '18px' }}> How do you want to engage?</FormLabel>
+                        sx={{ ...styles.TextDark, display: 'block', textAlign: 'left', paddingTop: 0, paddingBottom: '4px', fontSize: '18px' }}> How do you want to engage?</FormLabel>
                         <FormGroup>
                             {INTEREST_OPTIONS.map((option) => (
                                 <FormControlLabel

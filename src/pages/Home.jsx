@@ -84,7 +84,7 @@ export default function Home() {
         <Typography style={styles.Subtitle}>
           Bring Back Beauty, Bring Back Nature, Bring Back Hope
         </Typography>
-        <Box sx={{ maxWidth: "1400px", margin: "0 auto" }}>
+        <Box sx={{ maxWidth: "1400px", margin: "0 auto", px: { xs: 2, md: 5 }, boxSizing: "border-box"}}>
           <Typography style={styles.Text}>
             Rummy Goodyear was 14 years old when he lost his home in the LA
             Wildfires on January 7th, 2025. Seeking a way to channel his grief
@@ -119,21 +119,19 @@ export default function Home() {
               component="img"
               src={natGeoImage}
               alt="National Geographic article thumbnail"
-              sx={{
-                width: "auto",
-                height: "500px",
-                borderRadius: "8px",
-                display: "block",
-              }}
+             sx={{ width: "auto", maxWidth: "100%", height: { xs: "auto", md: "500px" }
+            }}
             />
             <Button
-              sx={{
+                sx={{
                 ...styles.articleButton,
+                fontSize: { xs: "15px", md: "20px" },
+                width: "calc(100% - 32px)",
                 position: "absolute",
                 bottom: "16px",
                 left: "50%",
                 transform: "translateX(-50%)",
-              }}
+            }}
               component="a"
               href="https://www.nationalgeographic.com/environment/article/can-wildflowers-heal-the-toxic-mess-the-LA-fires-left-behind"
               target="_blank"
@@ -145,10 +143,16 @@ export default function Home() {
         </Box>
 
         {/* LA Times article action section */}
-        <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
-          <Stack direction="column" spacing={6} sx={{ width: "400px" }}>
-            <Box sx={{ width: "400px" }}>
-              <Typography style={styles.Subtitle}>
+        <Box sx={{ width: "100%", display: "flex",  flexDirection: { xs: "column-reverse", md: "row" },
+            alignItems: "center",
+            justifyContent: "center",
+            gap: { xs: 3, md: 6 },
+            px: { xs: 2, md: 0 },
+            boxSizing: "border-box",}}>
+
+          <Stack direction="column" spacing={6} sx={{ width: "100%", maxWidth: "400px"}}>
+            <Box sx={{ maxWidth: "300px", alignSelf: "center" }}>
+              <Typography style={{...styles.Subtitle, textAlign: "center"}}>
                 "This mother and son are sowing purpose and hope, one wildflower
                 at a time."
               </Typography>
@@ -171,17 +175,19 @@ export default function Home() {
             src={RummyDanaImage}
             alt="Rummy and Dana posing for a picture"
             sx={{
-              width: "400px",
-              height: "400px",
-              borderRadius: "50%",
-              objectFit: "cover",
-              display: "block",
+                width: "100%",
+                maxWidth: "400px",
+                aspectRatio: "1 / 1",
+                height: "auto",
+                borderRadius: "50%",
+                objectFit: "cover",
+                display: "block",
             }}
           />
         </Box>
 
         {/* continued argument section for mission statement */}
-        <Box sx={{ maxWidth: "1400px", margin: "0 auto" }}>
+        <Box sx={{ maxWidth: "1400px", margin: "0 auto", px: { xs: 2, md: 5 }, boxSizing: "border-box"}}>
           <Typography style={styles.Text}>
             Climate disasters take a toll on the physical and mental health of
             those who experience them, but they also provide powerful
@@ -209,11 +215,8 @@ export default function Home() {
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: "64px",
-              width: "100%",
-              maxWidth: "1200px",
-              margin: "0 auto",
+              gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
+              gap: { xs: "24px", md: "64px" },
             }}
           >
             <Box
@@ -258,7 +261,7 @@ export default function Home() {
       {/* ------------------ */}
       {/* map engine section */}
       <Box style={styles.engineSection}>
-        <Box sx={{ maxWidth: "1400px", margin: "0 auto" }}>
+        <Box sx={{ maxWidth: "1400px", margin: "0 auto", px: { xs: 2, md: 5 }, boxSizing: "border-box"}}>
           <Typography style={styles.SubtitleDark}>
             Track every Seed Bomb planted across Southern California — and add
             your own pin to the map
@@ -284,10 +287,13 @@ export default function Home() {
 
         {/* data analytics - make this more dynamic */}
         <Stack
-          direction="row"
-          spacing={4}
-          sx={{ justifyContent: "center" }}
-          style={styles.statsRow}
+        direction={{ xs: "column", sm: "row" }}
+        spacing={{ xs: 2, sm: 4 }}
+        sx={{
+            justifyContent: "center",
+            alignItems: "center",
+        }}
+        style={styles.statsRow}
         >
           <Box>
             <Typography style={styles.statNumber}>3,140</Typography>
@@ -313,7 +319,7 @@ export default function Home() {
       {/* ------------------ */}
       {/* hands on restoration section */}
       <Box style={styles.restorationSection}>
-        <Box sx={{ maxWidth: "1400px", margin: "0 auto" }}>
+        <Box sx={{ maxWidth: "1400px", margin: "0 auto", px: { xs: 2, md: 5 }, boxSizing: "border-box"}}>
           <Typography style={styles.sectionTitle}>
             Hands-on Restoration
           </Typography>
@@ -338,12 +344,9 @@ export default function Home() {
         >
           <Box
             sx={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: "64px",
-              width: "100%",
-              maxWidth: "1200px",
-              margin: "0 auto",
+                display: "grid",
+                gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
+                gap: { xs: "24px", md: "64px" },
             }}
           >
             <Box
@@ -401,7 +404,7 @@ export default function Home() {
           }}
         >
           {/* stack for subdivisions */}
-          <Stack direction="row" spacing={3} sx={{ alignItems: "flex-start" }}>
+          <Stack direction={{ xs: "column", md: "row" }} spacing={3} >
             <Box sx={{ flex: 1, minWidth: 0 }}>
               <Box
                 component="img"
@@ -475,19 +478,23 @@ export default function Home() {
       <Box style={styles.nativeSeedsSection}>
         <Typography style={styles.sectionTitle}>Why Native Seeds?</Typography>
         <Box
-          sx={{
-            width: "100%",
-            padding: "40px",
+          sx={{ width: "100%",
+            boxSizing: "border-box",
+            px: { xs: 2, md: 5 },
+            py: 4,
             display: "flex",
-            justifyContent: "center",
-          }}
+            justifyContent: "center",}}
         >
-          <Stack direction="row" spacing={8} alignItems="center">
+          <Stack 
+           direction={{ xs: "column", md: "row" }}
+            spacing={{ xs: 3, md: 8 }}
+            alignItems="center"
+            >
             <Box
               component="img"
               src={poppyImage1}
               alt="California Poppies on the water"
-              sx={{ width: "auto", height: "400px", borderRadius: "8px" }}
+              sx={{ width: "100%", maxWidth: "500px", height: "auto", borderRadius: "8px" }}
             />
             <Box sx={{ maxWidth: "300px", margin: "0 auto" }}>
               <Typography style={{ ...styles.Caption, textAlign: "left" }}>
