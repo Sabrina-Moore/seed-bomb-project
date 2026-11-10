@@ -104,7 +104,7 @@ export default function Events () {
                         component="img"
                         src={workshopImage1} 
                         alt="A visual map of the Palisades fire area" 
-                        sx={{ objectFit: 'cover', width: '100%', height: { xs: '260px', md: '400px' }, borderRadius: '8px' }}
+                        sx={{ objectFit: 'cover', width: '100%', height: { xs: '460px', md: '400px' }, borderRadius: '8px' }}
                     />
                     <Typography sx={styles.SubtitleDark}>
                         Placeholder for Video
@@ -131,6 +131,7 @@ export default function Events () {
                         gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))',
                         gap: 3,
                         paddingBottom: '40px',
+                        justifyItems: 'center',
                     }}
                 >
                 {pastEvents.map((event) => (
