@@ -23,7 +23,6 @@ import Events from "./pages/Events";
 import GetInvolved from "./pages/GetInvolved";
 import Press from "./pages/Press";
 import Donate from "./pages/Donate";
-import MapPage from "./pages/Map";
 import colors from "./components/colorPalette";
 import "./index.css";
 import SeedBombLogo from "./assets/logos/seed_bomb_logo.png";
@@ -42,7 +41,6 @@ function App() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md")); //triggers a render if the screen window size hits a certain threshold
 
   const navLinks = [
-    { key: "map", label: "Seed Map" },
     { key: "events", label: "Events" },
     { key: "gallery", label: "Gallery" },
     { key: "press", label: "Press" },
@@ -277,7 +275,6 @@ function App() {
       {currentPage === "press" && <Press />}
       {currentPage === "involved" && <GetInvolved />}
       {currentPage === "donate" && <Donate />}
-      {currentPage === "map" && <MapPage />}
     </>
   );
 }
