@@ -4,6 +4,8 @@
   color: #EA5B22;          /* text color in SeedMap component */
 }
 
+/* added and removed a background color test to see margin errors */
+
 .bitter-heading {
   font-family: "Bitter", serif;
   font-optical-sizing: auto;

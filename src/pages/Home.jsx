@@ -1,11 +1,10 @@
 //need images
-
 import { Stack, Box, Typography, Button } from "@mui/material";
 
 import colors from "../components/colorPalette";
 import "../index.css";
 
-import WaveDivider from "../components/waveDivider";
+import WaveDivider from "../components/WaveDivider";
 import FootnoteDivider from "../components/footnoteDivider";
 import Footnote from "../components/footnote";
 import SeedMap from "../components/SeedMap";
@@ -68,24 +67,24 @@ export default function Home() {
     <>
       {/* ------------------ */}
       {/* background cover image and title*/}
-      <Box style={styles.coverImage}>
-        <Typography style={styles.coverTitle}>The Seed Bomb Project</Typography>
+      <Box sx={styles.coverImage}>
+        <Typography sx={styles.coverTitle}>The Seed Bomb Project</Typography>
+
+      <WaveDivider fill={colors.orange} strokeColor={colors.white}/>
       </Box>
 
-      {/* swirly wave divider */}
-      <WaveDivider fill={colors.orange} strokeColor={colors.white} />
 
       {/* ------------------ */}
       {/* mission statement */}
-      <Box style={styles.missionSection}>
-        <Typography style={styles.missionTitle}>
+      <Box sx={styles.missionSection}>
+        <Typography sx={styles.missionTitle}>
           Our Mission Is Simple:
         </Typography>
-        <Typography style={styles.Subtitle}>
+        <Typography sx={styles.Subtitle}>
           Bring Back Beauty, Bring Back Nature, Bring Back Hope
         </Typography>
-        <Box sx={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <Typography style={styles.Text}>
+        <Box sx={{ maxWidth: "1400px", margin: "0 auto", px: { xs: 2, md: 5 }, boxSizing: "border-box"}}>
+          <Typography sx={styles.Text}>
             Rummy Goodyear was 14 years old when he lost his home in the LA
             Wildfires on January 7th, 2025. Seeking a way to channel his grief
             into something positive for his community and for the entire city,
@@ -93,14 +92,14 @@ export default function Home() {
             native wildflower seeds, clay, and compost to share and spread in
             fire-ravaged neighborhoods.
           </Typography>
-          <Typography style={styles.Text}>
+          <Typography sx={styles.Text}>
             In its first six months, the Seed Bomb Project has distributed more
             than 3000 seed bombs to stakeholders from Altadena to Pacific
             Palisades, healing LA one wildflower at a time.
           </Typography>
         </Box>
 
-        <Typography style={styles.SubtitleDark}>
+        <Typography sx={styles.SubtitleDark}>
           Placeholder for video
         </Typography>
 
@@ -119,21 +118,19 @@ export default function Home() {
               component="img"
               src={natGeoImage}
               alt="National Geographic article thumbnail"
-              sx={{
-                width: "auto",
-                height: "500px",
-                borderRadius: "8px",
-                display: "block",
-              }}
+             sx={{ width: "auto", maxWidth: "100%", height: { xs: "auto", md: "500px" }
+            }}
             />
             <Button
-              sx={{
+                sx={{
                 ...styles.articleButton,
+                fontSize: { xs: "15px", md: "20px" },
+                width: "calc(100% - 32px)",
                 position: "absolute",
                 bottom: "16px",
                 left: "50%",
                 transform: "translateX(-50%)",
-              }}
+            }}
               component="a"
               href="https://www.nationalgeographic.com/environment/article/can-wildflowers-heal-the-toxic-mess-the-LA-fires-left-behind"
               target="_blank"
@@ -145,10 +142,16 @@ export default function Home() {
         </Box>
 
         {/* LA Times article action section */}
-        <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
-          <Stack direction="column" spacing={6} sx={{ width: "400px" }}>
-            <Box sx={{ width: "400px" }}>
-              <Typography style={styles.Subtitle}>
+        <Box sx={{ width: "100%", display: "flex",  flexDirection: { xs: "column-reverse", md: "row" },
+            alignItems: "center",
+            justifyContent: "center",
+            gap: { xs: 3, md: 6 },
+            px: { xs: 2, md: 0 },
+            boxSizing: "border-box",}}>
+
+          <Stack direction="column" spacing={6} sx={{ width: "100%", maxWidth: "400px"}}>
+            <Box sx={{ maxWidth: "300px", alignSelf: "center" }}>
+              <Typography sx={{...styles.Subtitle, textAlign: "center"}}>
                 "This mother and son are sowing purpose and hope, one wildflower
                 at a time."
               </Typography>
@@ -171,25 +174,27 @@ export default function Home() {
             src={RummyDanaImage}
             alt="Rummy and Dana posing for a picture"
             sx={{
-              width: "400px",
-              height: "400px",
-              borderRadius: "50%",
-              objectFit: "cover",
-              display: "block",
+                width: "100%",
+                maxWidth: "400px",
+                aspectRatio: "1 / 1",
+                height: "auto",
+                borderRadius: "50%",
+                objectFit: "cover",
+                display: "block",
             }}
           />
         </Box>
 
         {/* continued argument section for mission statement */}
-        <Box sx={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <Typography style={styles.Text}>
+        <Box sx={{ maxWidth: "1400px", margin: "0 auto", px: { xs: 2, md: 5 }, boxSizing: "border-box"}}>
+          <Typography sx={styles.Text}>
             Climate disasters take a toll on the physical and mental health of
             those who experience them, but they also provide powerful
             opportunities for growth and change. Our work is hands-on, heart
             forward, youth-led, and fun, embodying the natural resilience of the
             native plant varieties we work with.
           </Typography>
-          <Typography style={styles.Text}>
+          <Typography sx={styles.Text}>
             Help us turn cleared lots and charred parkways into wildflower
             meadows.
           </Typography>
@@ -209,11 +214,8 @@ export default function Home() {
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: "64px",
-              width: "100%",
-              maxWidth: "1200px",
-              margin: "0 auto",
+              gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
+              gap: { xs: "24px", md: "64px" },
             }}
           >
             <Box
@@ -249,33 +251,34 @@ export default function Home() {
                 borderRadius: "8px",
               }}
             />
+            
           </Box>
         </Box>
+      <WaveDivider fill={colors.skyBlue} strokeColor={colors.white}/>
       </Box>
 
-      <WaveDivider fill={colors.skyBlue} strokeColor={colors.white} />
 
       {/* ------------------ */}
       {/* map engine section */}
-      <Box style={styles.engineSection}>
-        <Box sx={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <Typography style={styles.SubtitleDark}>
+      <Box sx={styles.engineSection}>
+        <Box sx={{ maxWidth: "1400px", margin: "0 auto", px: { xs: 2, md: 5 }, boxSizing: "border-box"}}>
+          <Typography sx={styles.SubtitleDark}>
             Track every Seed Bomb planted across Southern California — and add
             your own pin to the map
           </Typography>
-          <Typography style={styles.TextDark}>
+          <Typography sx={styles.TextDark}>
             Every dot below is a seed bomb planted by someone just like you.
             Explore the map, see how your neighborhood is doing, and add your
             own pin in seconds.
           </Typography>
-          <Typography style={styles.TextDark}>
+          <Typography sx={styles.TextDark}>
             Please plant responsibly only in areas that you have permission to
             do so.
           </Typography>
         </Box>
         {/* engine Placeholder */}
         <Box sx={styles.mapWrapper}>
-          <SeedMap styles={{ pointerEvents: "none" }} />
+          <SeedMap sx={{ pointerEvents: "none" }} />
         </Box>
 
         <Button variant="contained" sx={styles.bombButton}>
@@ -284,40 +287,43 @@ export default function Home() {
 
         {/* data analytics - make this more dynamic */}
         <Stack
-          direction="row"
-          spacing={4}
-          sx={{ justifyContent: "center" }}
-          style={styles.statsRow}
+        direction={{ xs: "column", sm: "row" }}
+        spacing={{ xs: 2, sm: 4 }}
+        sx={{
+            justifyContent: "center",
+            alignItems: "center",
+        }}
+        style={styles.statsRow}
         >
           <Box>
-            <Typography style={styles.statNumber}>3,140</Typography>
-            <Typography style={styles.statLabel}>Seed Bombs Planted</Typography>
+            <Typography sx={styles.statNumber}>3,140</Typography>
+            <Typography sx={styles.statLabel}>Seed Bombs Planted</Typography>
           </Box>
           <Box>
-            <Typography style={styles.statNumber}>62</Typography>
-            <Typography style={styles.statLabel}>
+            <Typography sx={styles.statNumber}>62</Typography>
+            <Typography sx={styles.statLabel}>
               Neighborhoods Reached
             </Typography>
           </Box>
           <Box>
-            <Typography style={styles.statNumber}>800+</Typography>
-            <Typography style={styles.statLabel}>
+            <Typography sx={styles.statNumber}>800+</Typography>
+            <Typography sx={styles.statLabel}>
               Volunteers Involved
             </Typography>
           </Box>
         </Stack>
+      <WaveDivider fill={colors.green} strokeColor={colors.white}/>
       </Box>
 
-      <WaveDivider fill={colors.green} strokeColor={colors.white} />
 
       {/* ------------------ */}
       {/* hands on restoration section */}
-      <Box style={styles.restorationSection}>
-        <Box sx={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <Typography style={styles.sectionTitle}>
+      <Box sx={styles.restorationSection}>
+        <Box sx={{ maxWidth: "1400px", margin: "0 auto", px: { xs: 2, md: 5 }, boxSizing: "border-box"}}>
+          <Typography sx={styles.sectionTitle}>
             Hands-on Restoration
           </Typography>
-          <Typography style={styles.Text}>
+          <Typography sx={styles.Text}>
             More than 37,000 acres burned in the Palisades and Eaton Fires,
             including more than sixteen thousand structures. The Seed Bomb
             Project engages young people to take an active role in healing their
@@ -338,12 +344,9 @@ export default function Home() {
         >
           <Box
             sx={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: "64px",
-              width: "100%",
-              maxWidth: "1200px",
-              margin: "0 auto",
+                display: "grid",
+                gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
+                gap: { xs: "24px", md: "64px" },
             }}
           >
             <Box
@@ -381,14 +384,14 @@ export default function Home() {
             />
           </Box>
         </Box>
+      <WaveDivider fill={colors.orange} strokeColor={colors.white}/>
       </Box>
 
-      <WaveDivider fill={colors.orange} strokeColor={colors.white} />
 
       {/* ------------------ */}
       {/* healing section */}
-      <Box style={styles.healingSection}>
-        <Typography style={styles.coverTitle}>
+      <Box sx={styles.healingSection}>
+        <Typography sx={styles.sectionTitle}>
           Seed Bombing Isn’t Just Fun — It’s Healing.
         </Typography>
         <Box
@@ -401,7 +404,7 @@ export default function Home() {
           }}
         >
           {/* stack for subdivisions */}
-          <Stack direction="row" spacing={3} sx={{ alignItems: "flex-start" }}>
+          <Stack direction={{ xs: "column", md: "row" }} spacing={3} >
             <Box sx={{ flex: 1, minWidth: 0 }}>
               <Box
                 component="img"
@@ -414,8 +417,8 @@ export default function Home() {
                   borderRadius: "8px",
                 }}
               />
-              <Typography style={styles.Subtitle}>Healing the Land</Typography>
-              <Typography style={styles.Text}>
+              <Typography sx={styles.Subtitle}>Healing the Land</Typography>
+              <Typography sx={styles.Text}>
                 Introducing native seeds in the aftermath of a fire improves
                 soil health and stability, supports biodiversity, speeds
                 wildfire recovery, remediates toxicity, and strengthens land
@@ -435,8 +438,8 @@ export default function Home() {
                   borderRadius: "8px",
                 }}
               />
-              <Typography style={styles.Subtitle}>Healing Ourselves</Typography>
-              <Typography style={styles.Text}>
+              <Typography sx={styles.Subtitle}>Healing Ourselves</Typography>
+              <Typography sx={styles.Text}>
                 The Seed Bomb project brings back together communities that have
                 been scatted by natural disasters, creating new opportunities
                 for bonding, healing, and growth, all in the service of doing
@@ -456,8 +459,8 @@ export default function Home() {
                   borderRadius: "8px",
                 }}
               />
-              <Typography style={styles.Subtitle}>Healing LA</Typography>
-              <Typography style={styles.Text}>
+              <Typography sx={styles.Subtitle}>Healing LA</Typography>
+              <Typography sx={styles.Text}>
                 We seek connection across all wildfire-affected zip codes of Los
                 Angeles, finding affinity, partnership, and common cause with
                 communities throughout the region.
@@ -465,54 +468,59 @@ export default function Home() {
             </Box>
           </Stack>
         </Box>
+      <WaveDivider fill={colors.skyBlue} strokeColor={colors.green}/>
       </Box>
 
-      {/* swirly wave divider restoration (green) -> Native Seeds (blue) */}
-      <WaveDivider fill={colors.skyBlue} strokeColor={colors.white} />
+
+
 
       {/* ------------------ */}
       {/* Why native seeds? section */}
-      <Box style={styles.nativeSeedsSection}>
-        <Typography style={styles.sectionTitle}>Why Native Seeds?</Typography>
+      <Box sx={styles.nativeSeedsSection}>
+        <Typography sx={styles.sectionTitle}>Why Native Seeds?</Typography>
         <Box
-          sx={{
-            width: "100%",
-            padding: "40px",
+          sx={{ width: "100%",
+            boxSizing: "border-box",
+            px: { xs: 2, md: 5 },
+            py: 4,
             display: "flex",
-            justifyContent: "center",
-          }}
+            justifyContent: "center",}}
         >
-          <Stack direction="row" spacing={8} alignItems="center">
+          <Stack 
+           direction={{ xs: "column", md: "row" }}
+            spacing={{ xs: 3, md: 8 }}
+            sx={{alignItems: "center"}}
+            >
             <Box
               component="img"
               src={poppyImage1}
               alt="California Poppies on the water"
-              sx={{ width: "auto", height: "400px", borderRadius: "8px" }}
+              sx={{ width: "100%", maxWidth: "500px", height: "auto", borderRadius: "8px" }}
             />
             <Box sx={{ maxWidth: "300px", margin: "0 auto" }}>
-              <Typography style={{ ...styles.Caption, textAlign: "left" }}>
+              <Typography sx={{ ...styles.Caption, textAlign: "left" }}>
                 “These seeds have adapted to thrive in the aftermath of
                 wildfires.
               </Typography>
-              <Typography style={{ ...styles.Caption, textAlign: "left" }}>
+              <Typography sx={{ ...styles.Caption, textAlign: "left" }}>
                 They actually grow better when challenged. They embody
                 resilience.”
               </Typography>
-              <Typography style={{ ...styles.Caption, textAlign: "center" }}>
+              <Typography sx={{ ...styles.Caption, textAlign: "center" }}>
                 — Rummy
               </Typography>
             </Box>
           </Stack>
         </Box>
         <Box sx={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <Typography style={styles.Text}>
+          <Typography sx={styles.Text}>
             California poppies, sunflowers, yarrow, evening primrose. . . these
             are the “fire-followers,” amazing plants that thrive in the
             aftermath of a fire.
           </Typography>
         </Box>
         <Box sx={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <Typography style={styles.Text}>
+          <Typography sx={styles.Text}>
             These drought-tolerant plants stabilize and detoxify the soil,
             create habitat and food for birds and bees, and prevent invasive
             plants from taking over and presenting new fire hazards. They are
@@ -520,16 +528,16 @@ export default function Home() {
           </Typography>
         </Box>
 
-        <Typography style={styles.SubtitleDark}>
+        <Typography sx={styles.SubtitleDark}>
           Placeholder for video
         </Typography>
-      </Box>
 
-      <WaveDivider fill={colors.white} strokeColor={colors.orange} />
+      <WaveDivider fill={colors.white} strokeColor={colors.green}/>
+      </Box>
 
       {/* ------------------- */}
       {/* Partner with us */}
-      <Box style={styles.partnerSection}>
+      <Box sx={styles.partnerSection}>
         <Box
           sx={{
             width: "100%",
@@ -567,7 +575,7 @@ export default function Home() {
         </Box>
         {/* what does this button do? Link to what? */}
         <Button
-          style={styles.partnerButton}
+          sx={styles.partnerButton}
           component="a"
           href="https://www.latimes.com/lifestyle/newsletter/2025-12-01/december-plants-newsletter"
           target="_blank"
@@ -575,12 +583,13 @@ export default function Home() {
         >
           Partner With Us
         </Button>
+
+       <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
+      
       </Box>
 
       {/* -------------- */}
       {/* footnote */}
-      <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
-
       <Footnote />
     </>
   );
@@ -589,74 +598,65 @@ export default function Home() {
 const styles = {
   //sections
   missionSection: {
+    position: 'relative',
     boxSizing: "border-box",
     width: "100%",
-    marginBottom: "60px",
     backgroundColor: colors.orange,
-    paddingBottom: "100px", //text space
+    paddingBottom: "100px", 
     textAlign: "center",
   },
   engineSection: {
+    position: 'relative',
     boxSizing: "border-box",
     width: "100%",
-    marginBottom: "60px",
     backgroundColor: colors.skyBlue,
-    paddingBottom: "100px", //text space
+    paddingBottom: "100px",
     textAlign: "center",
   },
   restorationSection: {
+    position: 'relative',
     boxSizing: "border-box",
     width: "100%",
-    marginBottom: "60px", //color
     backgroundColor: colors.green,
-    paddingBottom: "100px", //text space
+    paddingBottom: "100px",
     textAlign: "center",
   },
   healingSection: {
+    position: 'relative',
     boxSizing: "border-box",
     width: "100%",
-    marginBottom: "60px",
     backgroundColor: colors.orange,
-    paddingBottom: "100px", //text space
+    paddingBottom: "100px",
     textAlign: "center",
   },
   nativeSeedsSection: {
+    position: 'relative',
     boxSizing: "border-box",
     width: "100%",
-    marginBottom: "60px",
     backgroundColor: colors.skyBlue,
     paddingBottom: "100px",
     textAlign: "center",
   },
   partnerSection: {
+    position: "relative", 
     boxSizing: "border-box",
     width: "100%",
-    marginBottom: "60px",
     backgroundColor: colors.white,
-    paddingBottom: "100px", //text space
+    paddingBottom: "100px", 
     textAlign: "center",
   },
-  footnote: {
-    boxSizing: "border-box",
-    width: "100%",
-    marginBottom: "60px",
-    backgroundColor: colors.skyBlue,
-    paddingBottom: "100px", //text space
-    textAlign: "center",
-  },
+
 
   //images
   coverImage: {
     position: "relative",
     backgroundImage: `url(${coverImage1})`,
     backgroundSize: "cover",
-    backgroundPosition: "center",
-    height: "400px",
+    height: { xs: "300px", md: "650px" },
+    backgroundPosition: { xs: "center 65%", md: "center 55%" },
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    paddingBottom: "60px",
-    marginBottom: "60px",
   },
   engineImage: {
     position: "relative",
@@ -743,10 +743,10 @@ const styles = {
     color: colors.white,
     fontFamily: "var(--heading)",
     fontWeight: 900,
-    fontStyle: "italic",
-    fontSize: "50px",
-    position: "relative",
+    fontSize: { xs: "33px", md: "90px" },
+    position: "absolute",
     textAlign: "center",
+    top: "20px",
     textShadow: "0 2px 8px rgba(0,0,0,0.3)",
   },
   missionTitle: {
@@ -846,7 +846,6 @@ const styles = {
     paddingBottom: "10px",
   },
 
-  //map engine
   //map engine
   mapWrapper: {
     boxSizing: "border-box",

@@ -4,7 +4,6 @@ import {Stack, Box, Typography}  from '@mui/material';
 
 import colors from '../components/colorPalette'
 import '../index.css'
-import WaveDivider from '../components/waveDivider';
 import FootnoteDivider from '../components/footnoteDivider';
 import Footnote from '../components/footnote';
 
@@ -16,113 +15,113 @@ export default function SeedBombs() {
 
     return(
     <>
-        <Box>
-            {/* top page content section */}
-            {/* rows */}
-            <Stack direction="row" style={styles.background} >
-
-            {/* top row */}
-                <Box style={styles.ingredientSection}>
+        <Box sx={{ overflowX: "hidden", position: 'relative', }}>
+            {/* top row*/}
+            <Stack  direction={{ xs: "column", md: "row" }}
+            sx={{ backgroundColor: colors.white }}>
+                {/* left */}
+                <Box sx={styles.ingredientSection}>
                     {/* left item */}
                     <Stack direction="column" spacing={1} sx={{alignItems:"center"}}>
-                         <Typography style={styles.sectionTitleOrange}>
+                         <Typography sx={styles.sectionTitleOrange}>
                                 How do you make a seed bomb?
                             </Typography>
                             {/* explicit width to make uniform sizing */}
-                       <Box sx={{ width: 320 }}>
-                            <Typography style={styles.TextDark}>
+                       <Box sx={{ width: "100%", maxWidth: 320 }}>
+                            <Typography sx={styles.TextDark}>
                                 Mix together: 
                             </Typography>
-                            <Typography style={styles.TextDark}>
+                            <Typography sx={styles.TextDark}>
                             1 Cup native wildflower seeds
                             </Typography>
-                            <Typography style={styles.TextDark}>
+                            <Typography sx={styles.TextDark}>
                             3 Cups clay powder
                             </Typography>
-                            <Typography style={styles.TextDark}>
+                            <Typography sx={styles.TextDark}>
                             5 Cups compost
                             </Typography>
-                            <Typography style={styles.TextDark}>
+                            <Typography sx={styles.TextDark}>
                             Water (how much?)
                             </Typography>
-                            <Typography style={styles.TextDark}>
+                            <Typography sx={styles.TextDark}>
                             Mix and form little balls.
                             </Typography>
-                            <Typography style={styles.TextDark}>
-                            Dry them and plant it. 
+                            <Typography sx={styles.TextDark}>
+                            Dry them and plant them. 
                             </Typography>
                        </Box>
                     </Stack>
                 </Box>
 
-                    {/* right item */}
-                <Box style={styles.nativeSeedsSection}>
-                    <Typography style={styles.sectionTitleOrange}>
+             {/* right item */}
+                <Box sx={styles.nativeSeedsSection}>
+                    <Typography sx={styles.sectionTitleOrange}>
                         Why do we use native seeds?
                     </Typography>
-                    <Typography style={styles.TextDark}>
-                        California poppies, evening primrose, California buckwheat, yarrow, and sunflowers are naturally drought tolerant and  thrive in a post-fire environment, healing the soil by extracting toxins and fixing nutrients. 
+                    <Typography sx={styles.TextDark}>
+                        California poppies, evening primrose, California buckwheat, yarrow, and sunflowers are naturally drought tolerant and thrive in a post-fire environment, healing the soil by extracting toxins and fixing nutrients. 
                     </Typography>
                     <Box 
                         component="img"
                         src={starImage} 
-                        alt="Flowers blooming around a burned tree" 
-                        sx={{ width: '100%', maxHeight: '450px', objectFit: 'contain', borderRadius: '8px' }}
+                        alt="Image shows flowers blooming around a burned tree" 
+                        sx={{ width: '100%', maxHeight: '200px', objectFit: 'contain', borderRadius: '8px' }}
                     />
                 </Box>
-        </Stack>
+            </Stack>
 
-        {/* 2nd row */}
-        <Stack direction="row" style={styles.background}>
-            {/* left item */}
-            
-            <Box style={styles.plantingSection}>
-                {/* ingredients list */}
-                <Stack direction="column" spacing={1} sx={{alignItems:"center"}}>
-                    <Typography style={styles.sectionTitleOrange}>
-                        How do you plan a seed bomb?
-                    </Typography>
-                    <Box sx={{ width: 320 }}>
-                        <Typography style={styles.TextDark}>
-                        1. Crush your seed bomb in your hand.
+            {/* bottom row */}
+            <Stack direction={{ xs: "column", md: "row" }}sx={{ backgroundColor: colors.white, pb: { xs: "60px", md: "140px" } }}>
+                {/* left item */}
+                <Box sx={styles.plantingSection}>
+                    <Stack direction="column" spacing={1} sx={{alignItems:"center"}}>
+                        <Typography sx={styles.sectionTitleOrange}>
+                        How do you plant a seed bomb?
                         </Typography>
-                        <Typography style={styles.TextDark}>
-                            2. Scatter the seeds.
-                        </Typography>
-                        <Typography style={styles.TextDark}>
-                            3. Water the area, or time your planting for rain. 
-                        </Typography>
-                        <Typography style={styles.TextDark}>
-                            4. Wait for blooms. 
-                        </Typography>
-                        <Typography style={styles.SubtitleDark}>
-                            Placeholder video
-                        </Typography>
-                    </Box>
-                    
-                </Stack>
-            </Box>
-            {/* right item */}
-
-             <Box style={styles.whatWeDoSection}>
-                    <Typography style={styles.sectionTitleOrange}>
-                        What do we do with them?
-                    </Typography>
-                    <Typography style={styles.TextDark}>
-                        We give seed bombs to people impacted by wildfires so they can transform their cleared lots into vibrant pollinator meadows. We don’t use them in wild spaces or on private property without permission.
-                    </Typography>    
+                       <Box sx={{ width: "100%", maxWidth: 320 }}>
+                            <Typography sx={styles.TextDark}>
+                            1. Crush your seed bomb in your hand.
+                            </Typography>
+                            <Typography sx={styles.TextDark}>
+                                2. Scatter the seeds.
+                            </Typography>
+                            <Typography sx={styles.TextDark}>
+                                3. Water the area, or time your planting for rain. 
+                            </Typography>
+                            <Typography sx={styles.TextDark}>
+                                4. Wait for blooms. 
+                            </Typography>
+                            <Typography sx={styles.SubtitleDark}>
+                                Placeholder video
+                            </Typography>
+                        </Box>
+                    </Stack>
                 </Box>
-        </Stack>
-    </Box>
+                {/* right item */}
+                <Box sx={styles.whatWeDoSection}>
+                        <Typography sx={styles.sectionTitleOrange}>
+                            What do we do with them?
+                        </Typography>
+                        <Typography sx={styles.TextDark}>
+                            We give seed bombs to people impacted by wildfires so they can transform their cleared lots into vibrant pollinator meadows. We don’t use them in wild spaces or on private property without permission.
+                        </Typography>    
+                 </Box>
 
+
+                 <Box sx={{marginBottom: "40px"}}>
+                    {/* blank section to create spacing before footnote */}
+                 </Box>
+                 
+            
+            </Stack>
+            
+            {/* footnote */}
+            <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
+
+         </Box> 
     {/* -------------- */}
-    {/* footnote */}
-    <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
-
     <Footnote/>
-
     </>
-
     );
 }
 
@@ -130,30 +129,30 @@ export default function SeedBombs() {
 const styles = {
 //sections
 background: {
-backgroundColor: colors.white,
+    backgroundColor: colors.white,
 },
 ingredientSection: {
-    boxSizing: 'border-box',
-    marginBottom: '20px',
-    width: '100%',
-    padding: '40px',
+    boxSizing: "border-box",
+    width: "100%",
+    padding: { xs: "24px 16px", md: "40px" },
     textAlign: 'left',
 },
 whatWeDoSection: {
-    boxSizing: 'border-box',
-    width: '100%',
-    textAlign: 'center',
+    boxSizing: "border-box",
+    width: "100%",
+    padding: { xs: "24px 16px", md: "40px" },
+    textAlign: 'left',
 },
 nativeSeedsSection: {
-    boxSizing: 'border-box',
-    width: '100%',
-    padding: '40px',
+    boxSizing: "border-box",
+    width: "100%",
+    padding: { xs: "24px 16px", md: "40px" },
     textAlign: 'center',
 },
 plantingSection: {
-    boxSizing: 'border-box',
-    width: '100%',
-    paddingBottom: '120px',
+    boxSizing: "border-box",
+    width: "100%",
+    padding: { xs: "24px 16px", md: "40px" },
     textAlign: 'left',
 },
 
@@ -199,7 +198,7 @@ sectionTitleOrange: {
     fontFamily: 'var(--sans)', 
     fontStyle: 'italic',
     fontWeight: 700,
-    fontSize: '30px',
+    fontSize: { xs: '24px', md: '30px' },
     paddingTop: '10px',
     paddingBottom: '10px',
 },  
@@ -208,7 +207,7 @@ Subtitle: {
     fontFamily: 'var(--sans)', 
     fontStyle: 'italic',
     fontWeight: 700,
-    fontSize: '25px',
+    fontSize: { xs: '20px', md: '25px' }, 
     paddingTop: '10px',
     paddingBottom: '10px',
 },
@@ -217,7 +216,7 @@ SubtitleDark: {
     fontFamily: 'var(--sans)', 
     fontStyle: 'italic',
     fontWeight: 700,
-    fontSize: '25px',
+    fontSize: { xs: '20px', md: '25px' }, 
     paddingTop: '10px',
     paddingBottom: '10px',
 },
@@ -231,28 +230,28 @@ Caption: {
 Text: {
     color: colors.white,
     fontFamily: 'var(--sans)', 
-    fontSize: '18px',
+    fontSize: { xs: '16px', md: '18px' }, 
     paddingTop: '10px',
     paddingBottom: '10px',
 },
 TextOrange: {
     color: colors.darkOrange,
     fontFamily: 'var(--sans)',
-    fontSize: '18px',
+    fontSize: { xs: '16px', md: '18px' }, 
     paddingTop: '10px',
     paddingBottom: '10px',
 },
 TextGreen: {
     color: colors.green,
     fontFamily: 'var(--sans)',
-    fontSize: '18px',
+    fontSize: { xs: '16px', md: '18px' }, 
     paddingTop: '10px',
     paddingBottom: '10px',
 },
 TextDark: {
     color: colors.navyBlue,
     fontFamily: 'var(--sans)',
-    fontSize: '18px',
+    fontSize: { xs: '16px', md: '18px' }, 
     paddingTop: '10px',
     paddingBottom: '10px',
 },

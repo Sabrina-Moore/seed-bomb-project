@@ -6,7 +6,6 @@ import {Container, Box, Typography, Button, Card, CardActionArea, CardMedia, Car
 
 import colors from '../components/colorPalette'
 import '../index.css'
-import WaveDivider from '../components/waveDivider';
 import FootnoteDivider from '../components/footnoteDivider';
 import Footnote from '../components/footnote';
 
@@ -245,22 +244,20 @@ export default function Press() {
                     </CardActionArea>
                 </Card>
             ))}
+            
             </Box>
+            
         </Box>
+        
+        <br/>
+    {/* footnote */}
+    <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.white} />
     </Box>
 
-        {/* -------------- */}
-            {/* footnote */}
-        <FootnoteDivider fill={colors.skyBlue} strokeColor={colors.orange} />
-
-        <Footnote/>
-
-        
-
+    {/* -------------- */}
+    <Footnote/>
     </>
-
     );
-
 }
 
 
@@ -268,10 +265,10 @@ export default function Press() {
     const styles = {
 //sections
 pageSection: {
+    position: 'relative',
     boxSizing: 'border-box',
     width: '100%',
     backgroundColor: colors.skyBlue,
-    marginBottom: '60px',
     padding: '20px 20px',
     textAlign: 'center',
 },
